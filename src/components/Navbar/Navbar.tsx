@@ -9,7 +9,8 @@ import logo from "../../images/logoBlue.png";
 const Navbar: React.FC = () => {
   //const { isAuthenticated, user, loginWithRedirect, logout } = useAuth0();
   //const isUser = isAuthenticated && user;
-  const { amount } = useGlobalContext();
+  const { state } = useGlobalContext();
+  const amount = state.amount;
 
   useEffect(() => {
     const hamMenu = document.querySelector(".ham-menu");
