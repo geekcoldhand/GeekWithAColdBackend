@@ -1,14 +1,19 @@
 'use client';
+import React, { JSX, useState } from 'react';
+import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
 
-import { useState } from 'react';
-import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
-
- export default  StripeCheckout = ({ price}) => {
+ export default function StripeCheckout({price} : {price: number}): React.ReactNode {
     const stripe = useStripe();
     const elements = useElements();
     const [isLoading, setIsLoading] = useState(false);
 
-    const handleSubmit = async (event ) => {
+     const cardElement = elements?.getElement(CardElement);
+if (!cardElement) {
+  // Handle the case where cardElement is null
+  alert("Error: Card element not found.");
+  return;
+} 
+    const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
         if (!stripe || !elements) {
             return;
@@ -27,7 +32,7 @@ import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
         const { clientSecret } = await stripePaymentResponse.json();
         const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
             payment_method: {
-                card: elements.getElement(CardElement),
+                card: cardElement,
             },
         });
         if (error) {
@@ -38,14 +43,15 @@ import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
         }
         setIsLoading(false);
 
-        return (
-            <form onSubmit={handleSubmit}>
-                <CardElement />
-                <button type="submit" disabled={!stripe || isLoading}>
-                    {isLoading ? 'Processing...' : 'Pay'}
-                </button>
-            </form>
-        );
+     
     };
     
+    return (
+        <form onSubmit={handleSubmit}>
+            <CardElement />
+            <button type="submit" disabled={!stripe || isLoading}>
+                {isLoading ? 'Processing...' : 'Pay'}
+            </button>
+        </form>
+    );
 }

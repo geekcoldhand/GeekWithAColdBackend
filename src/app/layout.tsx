@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globalStyles.css";
+import { CartProvider } from "../context/CartContext";
+import Navbar from "@/components/Navbar/Navbar";
+import SplashPage from "@/components/Splash/Splash";
+import { ProductsProvider } from "../context/ProductContext";
 
 
 
@@ -12,7 +16,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body >
-        {children}
+      <ProductsProvider>
+        <CartProvider>
+          <SplashPage />
+          <Navbar />
+          {children}
+        </CartProvider>
+        </ProductsProvider>
       </body>
     </html>
   );

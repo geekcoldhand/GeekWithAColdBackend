@@ -1,0 +1,325 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  ul {
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+    color: #444;
+    font-weight: 500;
+    font-size: 28px;
+  }
+  #shop{
+    fill: #c04e4e;
+    width: 1.5rem;
+    font-size: 12px;
+      font-weight: 400;
+      letter-spacing: -.01em;
+      font-family: SF Pro Text, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+      line-height: 1;
+  }
+  #home{
+    fill: #c04e4e;
+    width: 1.5rem;
+    font-family: SF Pro Text, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+  }
+  #login{
+  fill: #c04e4e;
+  width: 1.5rem;
+  }
+  
+  .nav {
+    background-color: #ecf0f1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1.8rem;
+    border-bottom: 2px solid #c04e4e;
+  }
+  
+  .nav-container {
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: fit-content;
+    text-align: center;
+  }
+  
+  .nav-name{
+    font-size: 3em;
+    letter-spacing: .2em;
+    width: 100%;
+    text-align: center;
+    font-weight: 100;
+  }
+  .nav-logo{
+  
+  height: 100%;
+  margin-inline: 2rem;
+  margin-bottom: .9rem;
+  padding-top: 1vh;
+  
+  }
+  .ham-menu-container{
+    width: 4rem;
+  } 
+  
+  .off-screen-links::before{
+    content: "";
+    backdrop-filter: blur(1);
+    /* background-image: url("../../images/StreetATLCropjpg.jpg"); */
+    background-position: bottom;
+  }
+  
+  .off-screen-links{
+   background-color: #323232b5;
+  height: 100vh;
+  width: 100%;
+  max-width: 450px;
+  position: fixed;
+  top: 0;
+  left: -450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 3rem;
+  transition: .3 ease;
+  }
+  
+  .ham-menu{
+  z-index: 3;
+  height: 50px;
+  width: 35px;
+  position: relative;
+  cursor: pointer;
+  }
+  .ham-menu.active span:nth-child(1){
+    top: 50%;
+    transform: translate(50%, -50%) rotate(45deg);
+  }
+  .ham-menu.active span:nth-child(2){
+    opacity: 0;
+  }
+  .ham-menu.active span:nth-child(3){
+    top: 50%;
+    transform: translate(50%, -50%) rotate(-45deg);
+  }
+  .ham-menu span{
+    height: 5px;
+    width: 100%;
+    background-color: #c04e4e;
+    border-radius: 10rem;
+    position: absolute;
+    top: 50%;
+    left: 28px;
+    transform: translate(-15%, -50%);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .ham-menu span:nth-child(1){
+    top: 20%;
+  }
+  .ham-menu span:nth-child(2){
+    top: 45%;
+  }
+  .ham-menu span:nth-child(3){
+    top: 73%;
+  }
+  
+  
+  .off-screen-links.active{
+    left: 0;
+    z-index: 2;
+  }
+  
+  .links a:hover {
+    border-color: var(--primaryLightColor)
+  }
+  .links a {
+    padding: 12px 0px;
+    transition: all 0.2s ease-in-out;
+    margin-inline: 1rem;
+    color: whitesmoke;
+    width: fit-content;
+  }
+  #logo{
+    color: black;
+    padding: 0;
+    margin: 0;
+  }
+  .links {
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+  .links li {
+    height: 15px;
+    width: 100%;
+    padding: 7px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .nav-link{
+    color: #3a82af;
+    font-size: 42px;
+      font-weight: 200;
+      letter-spacing: -.01em;
+      font-family: SF Pro Text, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+      line-height: 1;
+  }
+  
+  .cart-icon {
+    margin-left: 8px;
+    stroke-width: .2px;
+    color: #c04e4e;
+    stroke-width: 1px;
+  }
+  
+  .login {
+    font-weight: bold;
+    color: #fff;
+    background-color: var(--primaryDarkColor);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: 2px solid transparent;
+  
+  }
+  
+  .login:hover {
+    color: var(--primaryLightColor);
+    background-color: transparent;
+    border-color: #3aafa9;
+  }
+  .cart-icon:hover {
+    filter: brightness(150%);
+  }
+  
+  .user {
+    display: flex;
+    margin-bottom: 2px;
+  }
+  #user-login{
+    display: none;
+  }
+  
+  .nav-item {
+    display: flex;
+    position: relative;
+    right: 3px;
+    margin-right: 12px;
+  }
+  nav svg {
+    width: 2rem;
+    fill: #fff;
+  }
+  .amount-container {
+    position: absolute;
+    top: -0.68rem;
+    right: -0.75rem;
+    width: .62rem;
+    height: 1.62rem;
+    border-radius: 50%;
+    background-color: #eaeaea76;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .total-amount {
+    color: #c04e4e;
+    margin-bottom: 0;
+    font-size: .8rem;
+  }
+  .nav h1 {
+    color: #3aafa9;
+    font-family: cursive;
+  }
+  
+  /* Tablet */
+  @media (min-width: 767px) {
+    .nav-container {
+      padding: 10px;
+      display: flex;
+    
+      justify-content: space-between;
+      flex-direction: row;
+      align-items: center;
+    }
+    .links a:hover {
+      border-color: var(--primaryLightColor)
+    }
+  
+  
+    .links {
+      display: flex;
+      justify-content: center;
+    }
+    .links li {
+      padding: 10px;
+      
+    }
+    .login {
+      font-weight: bold;
+      color: #c04e4e;
+      background-color: var(--primaryColor);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      border: 2px solid transparent;
+    }
+  }
+  
+  
+  /* Moblie */
+  @media only screen and (max-width: 767px) and (min-width: 350px) {
+    .links a:focus{
+      border:none;
+    }
+  
+    .nav-container{
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  
+    .nav-name{
+      width: 100%;
+      text-align: center;
+      font-size: 1.3em;
+    }
+  
+    .links a {
+      margin-inline: .5rem;
+     }
+  }
+  
+  @keyframes Grow {
+    0% {
+      transform: scale(1);
+    }
+    25% {
+      transform: scale(1.1);
+    }
+   
+    100% {
+      transform: scale(1);
+    }
+  }

@@ -27,7 +27,7 @@
 		"**/*.ts",
 		"**/*.tsx",
 		".next/types/**/*.ts",
-		"src/components/StripeCheckout/StripeCheckout.js",
+		"src/components/StripeCheckout/StripeCheckout.tsx",
 		"src/components/Navbar/Navbar.tsx"
 	],
 	"exclude": ["node_modules"]
