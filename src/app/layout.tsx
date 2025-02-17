@@ -5,10 +5,11 @@ import { CartProvider } from "../context/CartContext";
 import Navbar from "@/components/Navbar/Navbar";
 import SplashPage from "@/components/Splash/Splash";
 import { ProductsProvider } from "../context/ProductContext";
-import ProductDetails from "./products/[id]/page";
-import Link from "next/link";
-// import Homepage
-// import Errorpage
+import StripeCheckout from "../components/StripeCheckout/StripeCheckout";
+
+// TODO import Errorpage
+//TODO const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
+
 
 export default function RootLayout({
 	children,
@@ -22,7 +23,6 @@ export default function RootLayout({
 					<CartProvider>
 						<SplashPage />
 						<Navbar />
-
 						{children}
 					</CartProvider>
 				</ProductsProvider>

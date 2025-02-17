@@ -2,7 +2,7 @@
 import React from "react";
 import { useGlobalContext } from "../../context/CartContext";
 import Link from "next/link"; 
-//import CartItem from "../../components/Cart/CartItem";
+import CartItem from "../../components/Cart/CartItem";
 import StripePay from "../../components/StripeCheckout/StripeCheckout";
 import "../globalStyles.css";
 //import "./CartItem.css";
@@ -38,8 +38,8 @@ const CartItems = () => {
       <h1 style={{ textAlign: "center", paddingTop: "0.5rem" }}>Cart</h1>
       <div className="section section-center">
               {cart.map((item) => {
-            return <h1> cart items</h1>
-        //   return /<CartItem key={item.id} {...item} />;
+        
+           return <CartItem key={item.id} {...item} />;
         })}
         <hr />
         <div className="link-container">
