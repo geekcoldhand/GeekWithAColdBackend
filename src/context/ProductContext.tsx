@@ -10,7 +10,9 @@ interface Product {
 	name: string;
 	price: number;
 	amount: number;
-	image: StaticImageData;
+    image: string | StaticImageData;
+    description: string;
+    stock: number;
 }
 
 // Define types for the state
@@ -63,7 +65,7 @@ const reducer = (state: State, action: Action): State => {
 
 // Initial state
 const initialState: State = {
-    products: data,
+	products: data,
 };
 
 // Products Provider component

@@ -1,4 +1,5 @@
 "use client";
+import { StaticImageData } from "next/image";
 import React, {
 	useReducer,
 	useEffect,
@@ -12,9 +13,9 @@ interface CartItem {
 	id: string;
 	name: string;
 	amount: number;
-	image: string;
+	image: string | StaticImageData;
 	price: number;
-    stock: number;
+	stock: number;
    
 }
 
@@ -74,10 +75,11 @@ const reducer = (state: State, action: Action): State => {
 				const newItem = {
 					id: id,
 					name: product.name,
-					amount,
+					amount: product.amount,
 					image: product.image,
 					price: product.price,
-					stock: product.stock
+					stock: product.stock,
+			
 				};
 				return { ...state, cart: [...state.cart, newItem] };
 			}
