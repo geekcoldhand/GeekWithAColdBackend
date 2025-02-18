@@ -1,8 +1,8 @@
-import SplashPage from "../components/Splash/Splash";
-import NavBar from "../components/Navbar/Navbar";
+
 import { CartProvider } from "@/context/CartContext";
 import Banner from "@/components/Banner/Banner";
 import Link from "next/link";
+import "./HomeCSS/home.css";
 
 export default function Home() {
 	return (
@@ -23,11 +23,7 @@ export default function Home() {
 					</div>
 				</div>
 			</div>
-			<div className="drag-section">
-				{/* <DragZone/> */}
-
-				{/* <Footer/> */}
-			</div>
+			<div className="drag-section">{/* <DragZone/> */}</div>
 		</div>
 	);
 }

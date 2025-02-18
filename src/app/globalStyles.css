@@ -125,11 +125,7 @@ Error
   text-transform: capitalize;
 }
 
-.product {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+
 .content-prod {
   padding: 20px;
   width: 100%;

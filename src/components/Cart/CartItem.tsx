@@ -34,7 +34,7 @@ const CartItem = React.memo(function CartItem({
         </div>
       </div>
 
-      {/* Uncomment if using AmountButtons */}
+      {/* TODO: Uncomment if using AmountButtons */}
       {/* <AmountButtons
         amount={amount}
         inc={() => increase(id)}

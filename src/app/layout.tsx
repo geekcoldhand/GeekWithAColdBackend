@@ -5,10 +5,10 @@ import { CartProvider } from "../context/CartContext";
 import Navbar from "@/components/Navbar/Navbar";
 import SplashPage from "@/components/Splash/Splash";
 import { ProductsProvider } from "../context/ProductContext";
-import StripeCheckout from "../components/StripeCheckout/StripeCheckout";
+
 
 // TODO import Errorpage
-//TODO const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
+// TODO import footer
 
 
 export default function RootLayout({

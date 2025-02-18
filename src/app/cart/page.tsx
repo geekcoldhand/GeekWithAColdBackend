@@ -4,8 +4,13 @@ import { useGlobalContext } from "../../context/CartContext";
 import Link from "next/link"; 
 import CartItem from "../../components/Cart/CartItem";
 import StripePay from "../../components/StripeCheckout/StripeCheckout";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 import "../globalStyles.css";
 //import "./CartItem.css";
+
+ // TODO: Load your Stripe publishable key
+const stripePromise = loadStripe(process.env.STRIPE_PUBLISHABLE_KEY!);
 
 const CartItems = () => {
     const { state, clear } = useGlobalContext();
@@ -56,7 +61,10 @@ const CartItems = () => {
               Total : <span>${total}</span>
             </h3>
           </article>
+          <Elements stripe={stripePromise}>
           <StripePay price={total} />
+          </Elements>
+
         </div>
       </div>
     </>
