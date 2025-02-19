@@ -5,7 +5,6 @@ import { useProductsContext } from "../../../context/ProductContext";
 import { useParams } from "next/navigation";
 import AddToCart from "../../../components/Cart/AddToCart";
 import "./singleProduct.css";
-import { useGlobalContext } from "../../../context/CartContext";
 
 const SingleProductPage = () => {
 	const { id } = useParams();
@@ -13,7 +12,7 @@ const SingleProductPage = () => {
 
 	const temp = products.filter((product) => product.id === id);
 	return (
-		<div>
+		<div className="single-prod-container">
 			{temp.map((products) => {
 				const { name, price, description, amount, image } = products;
 				return (
@@ -29,7 +28,7 @@ const SingleProductPage = () => {
 							<p className="description"> {description}</p>
 
 							<h5 className="price-prod">${price}</h5>
-							<h5 className="price-prod">Size Chart</h5>
+							<button className="size-chart">Size Chart</button>
 							<p className="info-prod">
 								<span>Available : </span>
 								In stock

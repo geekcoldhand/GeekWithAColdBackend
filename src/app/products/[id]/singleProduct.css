@@ -1,0 +1,54 @@
+.product-center {
+	margin-block: 1vw;
+	display: flex;
+	max-width: 1000px;
+	justify-content: center;
+	justify-items: center;
+	align-items: center;
+	height: 80vh;
+}
+
+.content-prod {
+	padding: 20px;
+	width: 100%;
+	height: 40vh;
+	max-height: 700px;
+	max-width: 800px;
+	text-align: center;
+	display: flex;
+	justify-content: space-evenly;
+	flex-direction: column;
+}
+
+.single-prod-container {
+	width: fit-content;
+	margin-inline: auto;
+	margin-top: 2rem;
+}
+
+.btn-container {
+	padding-inline: 1.3rem;
+	background: #274662;
+	width: fit-content;
+	border-radius: 10rem;
+	color: whitesmoke;
+	margin-inline: auto;
+}
+.btn-container a {
+	color: whitesmoke;
+}
+.size-chart {
+	width: fit-content;
+	padding-inline: 0.5rem;
+	margin-inline: auto;
+}
+.description {
+	line-height: 2.3;
+}
+
+/* Tablet ~ Moblie */
+@media screen and (max-width: 776px) {
+	.product-center {
+		flex-direction: column;
+	}
+}

@@ -14,7 +14,8 @@ export default function StripeCheckout({
 	const cardElement = elements?.getElement(CardElement);
 	
 	const handleSubmit = async (event: React.FormEvent) => {
-        event.preventDefault();
+		event.preventDefault();
+		console.log("handle submit step 1");
         if ( !cardElement) {
             // Handle the case where cardElement is null
             alert("Error: Card element not found.");
@@ -52,9 +53,9 @@ export default function StripeCheckout({
 	};
 
 	return (
-		<form onSubmit={handleSubmit}>
-			<CardElement />
-			<button type="submit" disabled={!stripe || isLoading}>
+		<form className = "stripe-element-form" onSubmit={handleSubmit}>
+			<CardElement className="stripe-card" />
+			<button className = "stripe-element-button" type="submit" disabled={!stripe || isLoading}>
 				{isLoading ? "Processing..." : "Pay"}
 			</button>
 		</form>

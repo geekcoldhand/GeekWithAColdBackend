@@ -56,7 +56,7 @@ const AddToCart = React.memo(function AddToCart({ product }: AddToCartProps) {
         className="add-cart"
         onClick={() => addToCart(id, amount, product)}
       >
-        Place in Cart
+        Add to Bag
       </Link>
       {/* Include AmountButtons if needed */}
       {/* <AmountButtons amount={amount} increase={increase} decrease={decrease} /> */}

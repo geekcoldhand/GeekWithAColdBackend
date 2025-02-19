@@ -1,7 +1,7 @@
-'use client';
+"use client";
 import React from "react";
 import { useGlobalContext } from "../../context/CartContext";
-import Link from "next/link"; 
+import Link from "next/link";
 import CartItem from "../../components/Cart/CartItem";
 import StripePay from "../../components/StripeCheckout/StripeCheckout";
 import { Elements } from "@stripe/react-stripe-js";
@@ -9,66 +9,83 @@ import { loadStripe } from "@stripe/stripe-js";
 import "../globalStyles.css";
 //import "./CartItem.css";
 
- // TODO: Load your Stripe publishable key
-const stripePromise = loadStripe(process.env.STRIPE_PUBLISHABLE_KEY!);
-
+// TODO: Load your Stripe publishable key
+const TEST_KEY =
+	"pk_test_51HsoAjDW9ZmubhRmS7JqNrP6ZNf8qx9DcNyUYfb7QTZmruBucwvItOEPhaUvOyuddJbLe3KeEbZYNTminM2X5pP600VZshyn1S";
+const stripePromise = await loadStripe(TEST_KEY);
+console.log("loadStripe: ", stripePromise);
 const CartItems = () => {
-    const { state, clear } = useGlobalContext();
-    const { cart, total } = state;
-    
-  if (cart.length < 1) {
-    return (
-      <div className="page-100">
-        <div className="empty" style={{ textAlign: "center" }}>
-          <h2
-            style={{
-              marginBottom: "1rem",
-              marginTop: "1.5rem",
-            }}
-          >
-            Your bags are empty.
-          </h2>
-          <Link
-            href="/products"
-            className="link-btn"
-          >
-            Shop
-          </Link>
-        </div>
-      </div>
-    );
-  }
-  return (
-    <>
-      <h1 style={{ textAlign: "center", paddingTop: "0.5rem" }}>Cart</h1>
-      <div className="section section-center">
-              {cart.map((item) => {
-        
-           return <CartItem key={item.id} {...item} />;
-        })}
-        <hr />
-        <div className="link-container">
-          <Link href="/products" className="link-btn">
-            Continue Shopping
-          </Link>
-          <button type="button" className="link-btn clear-btn" onClick={clear}>
-            Empty Bag
-          </button>
-        </div>
-        <div className="cart-total-checkout">
-          <article>
-            <h3>
-              Total : <span>${total}</span>
-            </h3>
-          </article>
-          <Elements stripe={stripePromise}>
-          <StripePay price={total} />
-          </Elements>
+	const { state, clear } = useGlobalContext();
+	const { cart, total } = state;
 
-        </div>
-      </div>
-    </>
-  );
+	//OnClick show the hidden toggle class
+	const handleShowToggle = () => {
+		console.log("handleShowToggle");
+		const offScreenCheckout = document.querySelector(".off-screen-checkout");
+		offScreenCheckout?.classList.toggle("active");
+	};
+
+	if (cart.length < 1) {
+		return (
+			<h1 className="">
+				<div className="empty" style={{ textAlign: "center" }}>
+					<h2
+						style={{
+							marginBottom: "1rem",
+							marginTop: "1.5rem",
+						}}
+					>
+						Your garment bag is empty.
+					</h2>
+					<Link href="/products" className="link-btn">
+						Browse Atelier
+					</Link>
+				</div>
+			</h1>
+		);
+	}
+	return (
+		<>
+			<h1
+				style={{
+					textAlign: "center",
+					paddingTop: "0.5rem",
+					fontWeight: "lighter",
+				}}
+			>
+				{" "}
+				Bag
+			</h1>
+			<div className="section section-center">
+				{cart.map((item) => {
+					return <CartItem key={item.id} {...item} />;
+				})}
+				<hr />
+				<div className="link-container">
+					<Link href="/products" className="link-btn">
+						Browse Atelier
+					</Link>
+					<button
+						type="button"
+						className="link-btn "
+						onClick={handleShowToggle}
+					>
+						Checkout
+					</button>
+				</div>
+				<div className="cart-total-checkout">
+					<article>
+						<h3>
+							Total : <span>${total}</span>
+						</h3>
+					</article>
+					<Elements stripe={stripePromise}>
+						<StripePay price={total} />
+					</Elements>
+				</div>
+			</div>
+		</>
+	);
 };
 
 export default CartItems;
