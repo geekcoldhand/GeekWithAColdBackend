@@ -33,4 +33,7 @@
     width: 100%;
     height: 10vh;
     margin-inline:auto;
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 1rem;
 }

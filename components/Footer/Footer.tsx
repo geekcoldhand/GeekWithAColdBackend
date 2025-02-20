@@ -1,5 +1,6 @@
 import "./Footer.css";
 import whiteAtom from "../../public/svgs/whiteAtom.svg";
+import Image from "next/image";
 
 const Footer = () => {
 
@@ -53,8 +54,8 @@ const Footer = () => {
 				</a>
 			</div>
 			<p>
-				<image href={whiteAtom.src} width={50} height={50} />
-				2025 GWACH ATELIER &copy;
+				<Image src={whiteAtom.src} width={50} height={50} alt="logo" />
+			 &copy;
 			</p>
 		</footer>
 	);

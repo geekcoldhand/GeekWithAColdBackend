@@ -29,6 +29,8 @@ const CartItem = React.memo(function CartItem({
 				<Image
 					src={typeof image === "string" ? image : image.src} // Handle StaticImageData
 					alt={name}
+					width={100}
+					height={100}
 				/>
 				<div>
 					<h5 className="name">{name}</h5>

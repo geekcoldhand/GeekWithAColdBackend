@@ -1,26 +1,27 @@
 "use client";
 import "./Sandbox.css";
 import React, { useEffect, useRef, useState } from "react";
-import logo from "../../../public/svgs/whiteAtom.svg";
+import Image from "next/image";
+import logo from "../../public/svgs/whiteAtom.svg";
 // ACCESORIES
-import vest2 from "../../../public/images/clothes/vest2.png";
-import hat1 from "../../../public/images/clothes/hat1.png";
-import hat2 from "../../../public/images/clothes/hat2.png";
+import vest2 from "../../public/images/clothes/vest2.png";
+import hat1 from "../../public/images/clothes/hat1.png";
+import hat2 from "../../public/images/clothes/hat2.png";
 // TOPS
-import jacket1 from "../../../public/images/clothes/jacket1.png";
-import jacket2 from "../../../public/images/clothes/jacket2.png";
-import shirt1 from "../../../public/images/clothes/shirt1.png";
-import shirt3 from "../../../public/images/clothes/shirt3.png";
-import shirt4 from "../../../public/images/clothes/shirt4.png";
-import shirt5 from "../../../public/images/clothes/shirt5.png";
-import shirt6 from "../../../public/images/clothes/shirt6.png";
+import jacket1 from "../../public/images/clothes/jacket1.png";
+import jacket2 from "../../public/images/clothes/jacket2.png";
+import shirt1 from "../../public/images/clothes/shirt1.png";
+import shirt3 from "../../public/images/clothes/shirt3.png";
+import shirt4 from "../../public/images/clothes/shirt4.png";
+import shirt5 from "../../public/images/clothes/shirt5.png";
+import shirt6 from "../../public/images/clothes/shirt6.png";
 // PANTS
-import pant1 from "../../../public/images/clothes/pant1.png";
-import pant3 from "../../../public/images/clothes/pant3.png";
-import pant4 from "../../../public/images/clothes/pant4.png";
-import pant5 from "../../../public/images/clothes/pant5.png";
-import pant6 from "../../../public/images/clothes/pant6.png";
-import pant7 from "../../../public/images/clothes/pant7.png";
+import pant1 from "../../public/images/clothes/pant1.png";
+import pant3 from "../../public/images/clothes/pant3.png";
+import pant4 from "../../public/images/clothes/pant4.png";
+import pant5 from "../../public/images/clothes/pant5.png";
+import pant6 from "../../public/images/clothes/pant6.png";
+import pant7 from "../../public/images/clothes/pant7.png";
 
 // Define the types
 interface ItemState {
@@ -276,29 +277,121 @@ const Sandbox = () => {
 					<button className="macos-buttons green"></button>
 					<button className="macos-buttons yellow"></button>
 					<span className="macos-text">
-					<img src={logo.src} alt="logo" />
+						{/* <Image src={logo.src} alt="logo" width={40} height={40}/> */}
 					</span>
 				</div>
-				<img className="box pants" src={pant1.src} alt="logo" />
-				<img className="box pants" src={pant3.src} alt="logo" />
-				<img className="box pants" src={pant4.src} alt="logo" />
-				<img className="box pants" src={pant5.src} alt="logo" />
-				<img className="box pants" src={pant6.src} alt="logo" />
-				<img className="box pants" src={pant7.src} alt="logo" />
-
-				<img className="box shirts" src={shirt1.src} alt="logo" />
-				<img className="box shirts" src={shirt4.src} alt="logo" />
-				<img className="box shirts" src={shirt5.src} alt="logo" />
-				<img className="box shirts" src={shirt3.src} alt="logo" />
-				<img className="box shirts" src={shirt6.src} alt="logo" />
-
-				<img className="box shirts" src={vest2.src} alt="logo" />
-
-				<img className="box shirts" src={jacket1.src} alt="logo" />
-				<img className="box shirts" src={jacket2.src} alt="logo" />
-
-				<img className="box hats" src={hat1.src} alt="logo" />
-				<img className="box hats" src={hat2.src} alt="logo" />
+				<Image
+					className="box pants"
+					src={pant1.src}
+					width={100}
+					height={100}
+					alt="logo"
+				/>
+				<Image
+					className="box pants"
+					src={pant3.src}
+					width={100}
+					height={100}
+					alt="logo"
+				/>
+				<Image
+					className="box pants"
+					src={pant4.src}
+					width={100}
+					height={100}
+					alt="logo"
+				/>
+				<Image
+					className="box pants"
+					src={pant5.src}
+					width={100}
+					height={100}
+					alt="logo"
+				/>
+				<Image
+					className="box pants"
+					src={pant6.src}
+					width={100}
+					height={100}
+					alt="logo"
+				/>
+				<Image
+					className="box pants"
+					src={pant7.src}
+					width={100}
+					height={100}
+					alt="logo"
+				/>
+				<Image
+					className="box shirts"
+					src={shirt1.src}
+					width={100}
+					height={100}
+					alt="logo"
+				/>
+				<Image
+					className="box shirts"
+					src={shirt4.src}
+					width={100}
+					height={100}
+					alt="logo"
+				/>
+				<Image
+					className="box shirts"
+					src={shirt5.src}
+					width={100}
+					height={100}
+					alt="logo"
+				/>
+				<Image
+					className="box shirts"
+					src={shirt3.src}
+					width={100}
+					height={100}
+					alt="logo"
+				/>
+				<Image
+					className="box shirts"
+					src={shirt6.src}
+					width={100}
+					height={100}
+					alt="logo"
+				/>
+				<Image
+					className="box shirts"
+					src={vest2.src}
+					width={100}
+					height={100}
+					alt="logo"
+				/>
+				<Image
+					className="box shirts"
+					src={jacket1.src}
+					width={100}
+					height={100}
+					alt="logo"
+				/>
+				<Image
+					className="box shirts"
+					src={jacket2.src}
+					width={100}
+					height={100}
+					alt="logo"
+				/>
+				<Image
+					src={hat1}
+					width={100}
+					height={80}
+					alt="logo"
+					className="box hats"
+				/>
+				<Image
+					src={hat2}
+					 width={100}
+					 height={100}
+					alt="logo"
+					className="box hats"
+				/>
 			</div>
 		</div>
 	);
