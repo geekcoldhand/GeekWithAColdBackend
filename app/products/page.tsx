@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useProductsContext } from "../../context/ProductContext";
 import Image from "next/image";
 import { StaticImageData } from "next/image";
-import Sandbox from "@/components/Sandbox/Sandbox";
+import Sandbox from "../../components/Sandbox/Sandbox";
 
 import "./ProductList.css";
 
@@ -41,7 +41,7 @@ const ProductList = () => {
 									<div className="cocktail-footer">
 										<div className="product">
 											<h4>{` $${price}`}</h4>
-										
+
 											<h3>{name}</h3>
 										</div>
 									</div>

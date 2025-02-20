@@ -1,5 +1,5 @@
 import "./Footer.css";
-import whiteAtom from "../../../public/svgs/whiteAtom.svg";
+import whiteAtom from "../../public/svgs/whiteAtom.svg";
 
 const Footer = () => {
 

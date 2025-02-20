@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import Link from "next/link";
 import { useGlobalContext } from "../../context/CartContext";
 import "./Navbar.css";
-import whiteAtomLogo from "../../../public/svgs/whiteAtom.svg";
+import whiteAtomLogo from "../../public/svgs/whiteAtom.svg";
 import Image from "next/image";
 
 const Navbar: React.FC = () => {
