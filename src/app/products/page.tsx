@@ -34,6 +34,8 @@ const ProductList = () => {
 										<Image
 											src={typeof image === "string" ? image : image.src}
 											alt={name}
+											width={300}
+											height={300}
 										/>
 									</div>
 									<div className="cocktail-footer">

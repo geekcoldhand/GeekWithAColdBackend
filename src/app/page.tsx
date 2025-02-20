@@ -5,6 +5,12 @@ import Link from "next/link";
 import "./HomeCSS/home.css";
 
 export default function Home() {
+
+	console.log(`
+#  ┏┓┓ ┏┏┓┏┓┓┏
+#  ┃┓┃┃┃┣┫┃ ┣┫
+#  ┗┛┗┻┛┛┗┗┛┛┗
+#  `);
 	return (
 		<div className="info">
 			<Banner />

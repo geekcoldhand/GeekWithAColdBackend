@@ -53,7 +53,7 @@ const Navbar: React.FC = () => {
 				<ul className="off-screen-links">
 					<li className="links">
 						<Link href="/">
-							<Image id="nav-logo" src={whiteAtomLogo.src} alt="logo"></Image>
+							<Image id="nav-logo" src={whiteAtomLogo.src} alt="logo" width={30} height={30}></Image>
 						</Link>
 					</li>
 					<li className="links">

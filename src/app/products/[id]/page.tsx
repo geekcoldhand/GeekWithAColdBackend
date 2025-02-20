@@ -22,6 +22,8 @@ const SingleProductPage = () => {
 							className="prod-photo"
 							src={typeof image === "string" ? image : image.src}
 							alt={name}
+							width={300}
+							height={300}
 						/>
 						<section className="content-prod">
 							<h2>{name}</h2>
