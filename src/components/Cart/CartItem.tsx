@@ -1,6 +1,7 @@
 import React from "react";
 import { useGlobalContext } from "../../context/CartContext";
 import type { StaticImageData } from "next/image";
+import  Image  from "next/image";
 import AmountButtons from "../AmountButtons/AmountButtons";
 import "./Cart.css";
 
@@ -25,7 +26,7 @@ const CartItem = React.memo(function CartItem({
 	return (
 		<div className="cart">
 			<div className="title">
-				<img
+				<Image
 					src={typeof image === "string" ? image : image.src} // Handle StaticImageData
 					alt={name}
 				/>

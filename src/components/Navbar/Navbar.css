@@ -151,6 +151,7 @@
     margin-inline: 1rem;
     color: whitesmoke;
     width: fit-content;
+    font-weight: 200;
   }
   #nav-logo{
     width: 50px;

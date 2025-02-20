@@ -1,5 +1,5 @@
 "use client";
-import React, { JSX, useState } from "react";
+import React, { JSX, useState, useRef } from "react";
 import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
 
 export default function StripeCheckout({
@@ -10,6 +10,7 @@ export default function StripeCheckout({
 	const stripe = useStripe();
 	const elements = useElements();
 	const [isLoading, setIsLoading] = useState(false);
+	
 
 	const cardElement = elements?.getElement(CardElement);
 	
@@ -25,6 +26,8 @@ export default function StripeCheckout({
 			return;
 		}
 		setIsLoading(true);
+		console.log("handle submit step 2");
+
 		const stripePaymentResponse = await fetch("/api/stripe-checkout", {
 			method: "POST",
 			headers: {
@@ -54,10 +57,11 @@ export default function StripeCheckout({
 
 	return (
 		<form className = "stripe-element-form" onSubmit={handleSubmit}>
-			<CardElement className="stripe-card" />
+			<CardElement className="stripe-card" ></CardElement>	
 			<button className = "stripe-element-button" type="submit" disabled={!stripe || isLoading}>
 				{isLoading ? "Processing..." : "Pay"}
-			</button>
+				</button>
+			
 		</form>
 	);
 }

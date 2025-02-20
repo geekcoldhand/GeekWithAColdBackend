@@ -1,7 +1,7 @@
 "use client";
 import "./Sandbox.css";
 import React, { useEffect, useRef, useState } from "react";
-import trioLogo from "../../images/triAtom.png";
+import logo from "../../../public/svgs/whiteAtom.svg";
 // ACCESORIES
 import vest2 from "../../../public/images/clothes/vest2.png";
 import hat1 from "../../../public/images/clothes/hat1.png";
@@ -275,7 +275,9 @@ const Sandbox = () => {
 					<button className="macos-buttons red"></button>
 					<button className="macos-buttons green"></button>
 					<button className="macos-buttons yellow"></button>
-					<span className="macos-text"> GWACH Closet</span>
+					<span className="macos-text">
+					<img src={logo.src} alt="logo" />
+					</span>
 				</div>
 				<img className="box pants" src={pant1.src} alt="logo" />
 				<img className="box pants" src={pant3.src} alt="logo" />

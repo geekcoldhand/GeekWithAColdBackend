@@ -5,6 +5,7 @@ import { useProductsContext } from "../../../context/ProductContext";
 import { useParams } from "next/navigation";
 import AddToCart from "../../../components/Cart/AddToCart";
 import "./singleProduct.css";
+import Image from "next/image";
 
 const SingleProductPage = () => {
 	const { id } = useParams();
@@ -17,7 +18,7 @@ const SingleProductPage = () => {
 				const { name, price, description, amount, image } = products;
 				return (
 					<div className="product-center" key={products.id}>
-						<img
+						<Image
 							className="prod-photo"
 							src={typeof image === "string" ? image : image.src}
 							alt={name}

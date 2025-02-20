@@ -5,11 +5,17 @@ import { CartProvider } from "../context/CartContext";
 import Navbar from "@/components/Navbar/Navbar";
 import SplashPage from "@/components/Splash/Splash";
 import { ProductsProvider } from "../context/ProductContext";
+import Footer from "@/components/Footer/Footer";
 
 
 // TODO import Errorpage
 // TODO import footer
-
+export const metadata = {
+	title: "GWACH Atelier",
+	icons: {
+	  icon: "/svgs/whiteAtom.svg", // Path to your SVG favicon
+	},
+  };
 
 export default function RootLayout({
 	children,
@@ -24,6 +30,7 @@ export default function RootLayout({
 						<SplashPage />
 						<Navbar />
 						{children}
+						<Footer />
 					</CartProvider>
 				</ProductsProvider>
 			</body>

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useGlobalContext } from "../../context/CartContext";
 import "./Navbar.css";
 import whiteAtomLogo from "../../../public/svgs/whiteAtom.svg";
+import Image from "next/image";
 
 const Navbar: React.FC = () => {
 	//const { isAuthenticated, user, loginWithRedirect, logout } = useAuth0();
@@ -52,10 +53,7 @@ const Navbar: React.FC = () => {
 				<ul className="off-screen-links">
 					<li className="links">
 						<Link href="/">
-							<img id="nav-logo" src={whiteAtomLogo.src}>
-								
-								
-						</img>
+							<Image id="nav-logo" src={whiteAtomLogo.src} alt="logo"></Image>
 						</Link>
 					</li>
 					<li className="links">

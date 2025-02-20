@@ -42,7 +42,7 @@ const Booking = () => {
 
   return (
     <div className="booking-container">
-      <h1>Book Appointment</h1>
+      <h1 className="booking-title">Book Consultation</h1>
       <input
         type="date"
         value={selectedDate}

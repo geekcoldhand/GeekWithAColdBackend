@@ -3,7 +3,8 @@
 import React from "react";
 import Link from "next/link";
 import { useProductsContext } from "../../context/ProductContext";
-import type { StaticImageData } from "next/image";
+import Image from "next/image";
+import { StaticImageData } from "next/image";
 import Sandbox from "@/components/Sandbox/Sandbox";
 
 import "./ProductList.css";
@@ -30,7 +31,7 @@ const ProductList = () => {
 							<article key={id} className="cocktail">
 								<Link href={`/products/${id}`} className="add-cart">
 									<div className="img-container">
-										<img
+										<Image
 											src={typeof image === "string" ? image : image.src}
 											alt={name}
 										/>
