@@ -4,8 +4,10 @@ import { NextResponse } from "next/server";
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 const origin = process.env.NEXTAUTH_URL as string;
 
-const StripeChecout = async (req: Request) => {
+export async function POST(req: Request) {
     const { price } = await req.json();
+
+    // Create a Stripe checkout session
     const session = await stripe.checkout.sessions.create({
         line_items: [
             {
@@ -18,7 +20,7 @@ const StripeChecout = async (req: Request) => {
         success_url: `${origin}/success`,
         cancel_url: `${origin}/cancel`,
     });
-    return NextResponse.json({ url: session.url });
-};  
 
-export { StripeChecout };
+    // Return the session URL as a JSON response
+    return NextResponse.json({ url: session.url });
+}
