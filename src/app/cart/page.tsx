@@ -10,8 +10,7 @@ import "../globalStyles.css";
 //import "./CartItem.css";
 
 // TODO: Load your Stripe publishable key
-const TEST_KEY =
-	"pk_test_51HsoAjDW9ZmubhRmS7JqNrP6ZNf8qx9DcNyUYfb7QTZmruBucwvItOEPhaUvOyuddJbLe3KeEbZYNTminM2X5pP600VZshyn1S";
+const TEST_KEY = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string;
 const stripePromise = await loadStripe(TEST_KEY);
 console.log("loadStripe: ", stripePromise);
 const CartItems = () => {

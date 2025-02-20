@@ -275,7 +275,7 @@ const Sandbox = () => {
 					<button className="macos-buttons red"></button>
 					<button className="macos-buttons green"></button>
 					<button className="macos-buttons yellow"></button>
-					<span className="macos-text"> GWACH Sandbox</span>
+					<span className="macos-text"> GWACH Closet</span>
 				</div>
 				<img className="box pants" src={pant1.src} alt="logo" />
 				<img className="box pants" src={pant3.src} alt="logo" />

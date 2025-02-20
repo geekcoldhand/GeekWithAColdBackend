@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import Link from "next/link";
 import { useGlobalContext } from "../../context/CartContext";
 import "./Navbar.css";
+import whiteAtomLogo from "../../../public/svgs/whiteAtom.svg";
 
 const Navbar: React.FC = () => {
 	//const { isAuthenticated, user, loginWithRedirect, logout } = useAuth0();
@@ -50,13 +51,21 @@ const Navbar: React.FC = () => {
 			<div className="nav-container">
 				<ul className="off-screen-links">
 					<li className="links">
-						<Link href="/">Home</Link>
+						<Link href="/">
+							<img id="nav-logo" src={whiteAtomLogo.src}>
+								
+								
+						</img>
+						</Link>
 					</li>
 					<li className="links">
 						<Link href="/products">Atelier</Link>
 					</li>
 					<li className="links">
-						<Link href="/products#drag-container">Sandbox</Link>
+						<Link href="/booking">Booking</Link>
+					</li>
+					<li className="links">
+						<Link href="/products#drag-container">Closet</Link>
 					</li>
 				</ul>
 				<nav className="ham-menu-container">

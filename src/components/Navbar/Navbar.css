@@ -99,7 +99,7 @@
   .ham-menu{
   z-index: 3;
   height: 50px;
-  width: 35px;
+  width: 55px;
   position: relative;
   cursor: pointer;
   }
@@ -116,12 +116,12 @@
   }
   .ham-menu span{
     height: 5px;
-    width: 100%;
+    width: 70%;
     background-color: #c04e4e;
     border-radius: 10rem;
     position: absolute;
     top: 50%;
-    left: 28px;
+    left: 18px;
     transform: translate(-15%, -50%);
     transition: all 0.3s ease-in-out;
   }
@@ -152,8 +152,9 @@
     color: whitesmoke;
     width: fit-content;
   }
-  #logo{
-    color: black;
+  #nav-logo{
+    width: 50px;
+    height: 50px;
     padding: 0;
     margin: 0;
   }

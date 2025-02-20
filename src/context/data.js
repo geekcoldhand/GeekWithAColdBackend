@@ -111,7 +111,7 @@ const data = [
     id: "recoW8ecgjtKx2Sj2",
     name: "Americana Dress Shirt",
     price: 90,
-    image: "images/clothes/pant6.png",
+    image: "/images/clothes/pant6.png",
     company: "GWACH Atelier SS 2025",
     description:
       "Crafted from premium fabrics, our latest piece embodies the rebellious spirit of GWACH's Fall 24 collection.",
