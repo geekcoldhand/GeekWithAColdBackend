@@ -18,7 +18,8 @@ const CartItems = () => {
 	const { cart, total } = state;
 
 	//OnClick show the hidden toggle class
-	const handleShowToggle = () => {
+	const handleShowToggle = (e: Event) => {
+		e.preventDefault();
 		console.log("handleShowToggle");
 		const offScreenCheckout = document.querySelector(".off-screen-checkout");
 		offScreenCheckout?.classList.toggle("active");
@@ -53,7 +54,7 @@ const CartItems = () => {
 				}}
 			>
 				{" "}
-				Bag
+				Order Summary
 			</h1>
 			<div className="section section-center">
 				{cart.map((item) => {
@@ -67,7 +68,7 @@ const CartItems = () => {
 					<button
 						type="button"
 						className="link-btn "
-						onClick={handleShowToggle}
+						onClick={e => handleShowToggle}
 					>
 						Checkout
 					</button>

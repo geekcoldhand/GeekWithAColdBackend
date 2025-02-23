@@ -48,6 +48,7 @@ const CartItem = React.memo(function CartItem({
 			<button type="button" className="remove-btn" onClick={() => remove(id)}>
 				<svg
 					data-slot="icon"
+					
 					fill="none"
 					width={16}
 					strokeWidth="1.5"
