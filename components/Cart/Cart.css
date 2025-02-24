@@ -1,12 +1,18 @@
 :root{
     --radius: 10rem;
 }
-.price-small {
-	display: none;
+.section{
+
+	height:65vh;
+}
+.cart-footer {
+	display: flex;
+	align-items: center;
 }
 
 .cart {
 	display: grid;
+
 	grid-template-columns:  auto 140px 70px 70px;
 	grid-template-rows: 75px;
 	gap: 3rem 1rem;

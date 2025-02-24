@@ -15,7 +15,7 @@ export default function Home() {
 			<div className="hero">
 				<div className="content">
 					<div className="head">
-						<h1>Simple Sophistication </h1>
+						<h1>Subtle Sophistication </h1>
 						<p>
 							Shop Ivy League, our new collection of clothes, bags, head-gear
 							and more

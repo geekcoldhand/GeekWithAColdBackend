@@ -1,7 +1,7 @@
 import React from "react";
 import { useGlobalContext } from "../../context/CartContext";
 import type { StaticImageData } from "next/image";
-import  Image  from "next/image";
+import Image from "next/image";
 import AmountButtons from "../AmountButtons/AmountButtons";
 import "./Cart.css";
 
@@ -32,23 +32,22 @@ const CartItem = React.memo(function CartItem({
 					width={100}
 					height={100}
 				/>
-				<div>
-					<h5 className="name">{name}</h5>
-					<h5 className="price-small">${price}</h5>
-				</div>
+				<h5 className="subtotal">${price * amount}</h5>
+				{/* <h5 className="price-small">${price}</h5> */}
+			</div>
+			<div className="cart-footer">
+				<h5 className="name">{name}</h5>
+
+				<AmountButtons
+					amount={amount}
+					inc={() => increase(id)}
+					dec={() => decrease(id)}
+				/>
 			</div>
 
-			<AmountButtons
-				amount={amount}
-				inc={() => increase(id)}
-				dec={() => decrease(id)}
-			/>
-
-			<h5 className="subtotal">${price * amount}</h5>
 			<button type="button" className="remove-btn" onClick={() => remove(id)}>
 				<svg
 					data-slot="icon"
-					
 					fill="none"
 					width={16}
 					strokeWidth="1.5"

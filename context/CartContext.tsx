@@ -38,7 +38,7 @@ type Action =
 // Create the context with a default value
 const Cart = createContext<{
 	state: State;
-	addToCart: (id: string, amount: number, product: CartItem) => void;
+	addToCart: (id: string, amount: number, product: CartItem, size: string) => void;
 	clear: () => void;
 	decrease: (id: string) => void;
 	increase: (id: string) => void;
