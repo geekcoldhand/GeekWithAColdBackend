@@ -28,6 +28,7 @@ export default function SplashPage() {
 						priority
 						width={240}
 						height={200}
+						style={{ width: 'auto', height: 'auto' }}
 					/>
 				</div>
 			</div>

@@ -1,3 +1,14 @@
+.container{
+display: flex;
+flex-direction: column;
+}
+.back-button{
+	width: 5rem;
+	background-color: transparent;
+	border: .1px solid black;
+}
+
+
 .product-center {
 	margin-block: 1vw;
 	display: flex;
@@ -6,6 +17,7 @@
 	justify-items: center;
 	align-items: center;
 	height: 80vh;
+	padding: 3rem;
 }
 
 .content-prod {
@@ -34,13 +46,18 @@
 	margin-inline: auto;
 }
 .btn-container a {
-	margin-top: 1rem;
+	margin: 1rem .5rem;
 	color: rgb(42, 40, 40);
 	font-size: .8rem;
 	padding-inline: .5rem;
 	border-radius: 10rem; 
 	border: .1px solid rgb(42, 40, 40);
-
+	padding: .2rem;
+	background-color: #8ca5d7;
+}
+.btn-container select{
+	border-radius: 10rem;
+	padding-inline: .5rem;
 }
 .size-chart {
 	width: fit-content;
@@ -55,5 +72,6 @@
 @media screen and (max-width: 776px) {
 	.product-center {
 		flex-direction: column;
+		padding: 3rem;
 	}
 }

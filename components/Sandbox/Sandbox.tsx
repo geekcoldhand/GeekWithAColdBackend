@@ -285,6 +285,7 @@ const Sandbox = () => {
 					src={pant1.src}
 					width={100}
 					height={100}
+					style={{ width: 'auto', height: 'auto' }}
 					alt="logo"
 				/>
 				<Image
@@ -292,6 +293,7 @@ const Sandbox = () => {
 					src={pant3.src}
 					width={100}
 					height={100}
+					style={{ width: 'auto', height: 'auto' }}
 					alt="logo"
 				/>
 				<Image
@@ -299,6 +301,7 @@ const Sandbox = () => {
 					src={pant4.src}
 					width={100}
 					height={100}
+					style={{ width: 'auto', height: 'auto' }}
 					alt="logo"
 				/>
 				<Image
@@ -306,6 +309,7 @@ const Sandbox = () => {
 					src={pant5.src}
 					width={100}
 					height={100}
+					style={{ width: 'auto', height: 'auto' }}
 					alt="logo"
 				/>
 				<Image
@@ -313,6 +317,7 @@ const Sandbox = () => {
 					src={pant6.src}
 					width={100}
 					height={100}
+					style={{ width: 'auto', height: 'auto' }}
 					alt="logo"
 				/>
 				<Image
@@ -320,6 +325,7 @@ const Sandbox = () => {
 					src={pant7.src}
 					width={100}
 					height={100}
+					style={{ width: 'auto', height: 'auto' }}
 					alt="logo"
 				/>
 				<Image
@@ -327,6 +333,7 @@ const Sandbox = () => {
 					src={shirt1.src}
 					width={100}
 					height={100}
+					style={{ width: 'auto', height: 'auto' }}
 					alt="logo"
 				/>
 				<Image
@@ -334,6 +341,7 @@ const Sandbox = () => {
 					src={shirt4.src}
 					width={100}
 					height={100}
+					style={{ width: 'auto', height: 'auto' }}
 					alt="logo"
 				/>
 				<Image
@@ -341,6 +349,7 @@ const Sandbox = () => {
 					src={shirt5.src}
 					width={100}
 					height={100}
+					style={{ width: 'auto', height: 'auto' }}
 					alt="logo"
 				/>
 				<Image
@@ -348,6 +357,7 @@ const Sandbox = () => {
 					src={shirt3.src}
 					width={100}
 					height={100}
+					style={{ width: 'auto', height: 'auto' }}
 					alt="logo"
 				/>
 				<Image
@@ -355,6 +365,7 @@ const Sandbox = () => {
 					src={shirt6.src}
 					width={100}
 					height={100}
+					style={{ width: 'auto', height: 'auto' }}
 					alt="logo"
 				/>
 				<Image
@@ -362,6 +373,7 @@ const Sandbox = () => {
 					src={vest2.src}
 					width={100}
 					height={100}
+					style={{ width: 'auto', height: 'auto' }}
 					alt="logo"
 				/>
 				<Image
@@ -369,6 +381,7 @@ const Sandbox = () => {
 					src={jacket1.src}
 					width={100}
 					height={100}
+					style={{ width: 'auto', height: 'auto' }}
 					alt="logo"
 				/>
 				<Image
@@ -376,19 +389,22 @@ const Sandbox = () => {
 					src={jacket2.src}
 					width={100}
 					height={100}
+					style={{ width: 'auto', height: 'auto' }}
 					alt="logo"
 				/>
 				<Image
 					src={hat1}
 					width={100}
 					height={80}
+					style={{ width: 'auto', height: 'auto' }}
 					alt="logo"
 					className="box hats"
 				/>
 				<Image
 					src={hat2}
 					 width={100}
-					 height={100}
+					height={100}
+					style={{ width: 'auto', height: 'auto' }}
 					alt="logo"
 					className="box hats"
 				/>

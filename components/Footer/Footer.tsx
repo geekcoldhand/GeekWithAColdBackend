@@ -3,34 +3,33 @@ import whiteAtom from "../../public/svgs/whiteAtom.svg";
 import Image from "next/image";
 
 const Footer = () => {
+	const quotes = [
+		{
+			id: 1,
+			text: "You can never be overdressed or over educated.",
+		},
+		{
+			id: 2,
+			text: "Style leads -it's a way to say who you are without having to speak",
+		},
+		{
+			id: 3,
+			text: "Good style is as little as possible while saying as mush you possible.",
+		},
+		{
+			id: 4,
+			text: "People will stare. Make it worth their while",
+		},
 
-    const quotes = [
-        {
-          id: 1,
-          text: "You can never be overdressed or over educated.",
-        },
-        {
-          id: 2,
-          text: "Style leads -it's a way to say who you are without having to speak",
-        },
-        {
-          id: 3,
-          text: "Good style is as little as possible while saying as mush you possible.",
-        },
-        {
-          id: 4,
-          text: "People will stare. Make it worth their while",
-        },
-    
-        {
-          id: 5,
-          text: "The joy of dressing is an art.",
-        },
-      ];
-    
-      let num = Math.floor(Math.random() * quotes.length);
-      let arr = quotes[num].text;
-    console.log(arr);
+		{
+			id: 5,
+			text: "The joy of dressing is an art.",
+		},
+	];
+
+	let num = Math.floor(Math.random() * quotes.length);
+	let arr = quotes[num].text;
+	console.log(arr);
 	console.log(`
 #  ┏┓┓ ┏┏┓┏┓┓┏
 #  ┃┓┃┃┃┣┫┃ ┣┫
@@ -54,8 +53,14 @@ const Footer = () => {
 				</a>
 			</div>
 			<p>
-				<Image src={whiteAtom.src} width={50} height={50} alt="logo" />
-			 &copy;
+        <Image
+          className="logo"
+					src={whiteAtom.src}
+					width={50}
+					height={50}
+					alt="logo"
+				/>
+				&copy;
 			</p>
 		</footer>
 	);
