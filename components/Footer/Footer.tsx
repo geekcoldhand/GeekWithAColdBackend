@@ -38,6 +38,13 @@ const Footer = () => {
 `);
 	return (
 		<footer className="footer">
+			<Image
+				className="logo"
+				src={whiteAtom.src}
+				width={50}
+				height={50}
+				alt="logo"
+			/>
 			<div className="social">
 				<a href="https://www.instagram.com/gwach_shop/">
 					<i className="fa fa-instagram "></i>
@@ -52,16 +59,6 @@ const Footer = () => {
 					<i className="fa fa-linkedin "></i>
 				</a>
 			</div>
-			<p>
-        <Image
-          className="logo"
-					src={whiteAtom.src}
-					width={50}
-					height={50}
-					alt="logo"
-				/>
-				&copy;
-			</p>
 		</footer>
 	);
 };

@@ -1,5 +1,6 @@
 .centered-content {
-	display: math;
+	/* display: math; */
+	display: block;
 	width: 100%;
 	height: fit-content;
 	justify-content: center;
@@ -30,7 +31,7 @@
 /* Mobile */
 @media screen and (max-width: 476px) {
 	.cocktails-center {
-		width: 27rem;
+		grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr)); 
 	}
 	.cocktail img {
 		height: 26vw;

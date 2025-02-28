@@ -51,7 +51,7 @@ const data = [
   },
   {
     id: "recoM2MyHJGHLVi5l",
-    name: "Star Varity Style Jacket",
+    name: "Star Varity Jacket",
     price: 180,
     image: "/images/clothes/jacket1.png",
     company: "Only",
@@ -99,7 +99,7 @@ const data = [
   },
   {
     id: "recrfxv3EwpvJwvjq",
-    name: "Parachute Pinched Pants",
+    name: "Parachute Pants",
     price: 100,
     image: "/images/clothes/pant7.png",
     company: "GWACH Atelier FW 2025",
@@ -112,7 +112,7 @@ const data = [
   },
   {
     id: "recoW8ecgjtKx2Sj2",
-    name: "Americana Dress Shirt",
+    name: "Americana Button Up",
     price: 90,
     image: "/images/clothes/pant6.png",
     company: "GWACH Atelier SS 2025",

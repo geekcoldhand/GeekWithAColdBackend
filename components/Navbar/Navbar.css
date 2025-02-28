@@ -40,6 +40,7 @@
     align-items: center;
     padding-top: 1.8rem;
     border-bottom: 2px solid #c04e4e;
+    width: 100%;
   }
   
   .nav-container {
@@ -324,4 +325,14 @@
     100% {
       transform: scale(1);
     }
+  }
+
+  @keyframes Slideout {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-100%);
+      }
+      
   }

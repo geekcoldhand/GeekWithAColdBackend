@@ -46,17 +46,18 @@ const CartItems = () => {
 	}
 	return (
 		<>
-			<h1
-				style={{
-					textAlign: "center",
-					paddingTop: "0.5rem",
-					fontWeight: "lighter",
-				}}
-			>
-				{" "}
-				Order Summary
-			</h1>
 			<div className="section section-center">
+				<h1
+					style={{
+						textAlign: "center",
+						paddingTop: "0.5rem",
+						fontWeight: "lighter",
+					}}
+				>
+					{" "}
+					Order Summary
+				</h1>
+
 				{cart.map((item) => {
 					return <CartItem key={item.id} {...item} />;
 				})}
@@ -68,7 +69,7 @@ const CartItems = () => {
 					<button
 						type="button"
 						className="link-btn "
-						onClick={e => handleShowToggle}
+						onClick={(e) => handleShowToggle}
 					>
 						Checkout
 					</button>

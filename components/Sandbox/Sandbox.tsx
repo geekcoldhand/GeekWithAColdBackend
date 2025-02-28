@@ -283,17 +283,17 @@ const Sandbox = () => {
 				<Image
 					className="box pants"
 					src={pant1.src}
-					width={100}
-					height={100}
+					width="100"
+					height="100"
 					style={{ width: 'auto', height: 'auto' }}
 					alt="logo"
 				/>
 				<Image
 					className="box pants"
 					src={pant3.src}
+					style={{ width: 'auto', height: 'auto' }}
 					width={100}
 					height={100}
-					style={{ width: 'auto', height: 'auto' }}
 					alt="logo"
 				/>
 				<Image

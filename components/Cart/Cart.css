@@ -2,8 +2,8 @@
     --radius: 10rem;
 }
 .section{
-
-	height:65vh;
+	width: 100vw;
+	height:44rem;
 }
 .cart-footer {
 	display: flex;

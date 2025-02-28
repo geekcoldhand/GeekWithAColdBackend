@@ -6,6 +6,9 @@ flex-direction: column;
 	width: 5rem;
 	background-color: transparent;
 	border: .1px solid black;
+	color: black;
+	cursor: pointer;
+	margin-left: 1rem;
 }
 
 
@@ -36,6 +39,10 @@ flex-direction: column;
 	width: fit-content;
 	margin-inline: auto;
 	margin-top: 2rem;
+}
+
+.size-container {
+	margin-block: 1rem;
 }
 
 .btn-container {

@@ -104,7 +104,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 100vw;
     background-color: transparent
   ;  text-align: center;
   }
@@ -129,7 +129,7 @@
     }
     .content,
     .brand-picture {
-      width: 100%;
+      width: 100vw;
   
     }
   
