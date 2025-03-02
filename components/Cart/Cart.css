@@ -10,6 +10,10 @@
 	align-items: center;
 }
 
+.empty h2{
+	font-weight: 100;
+}
+
 .cart {
 	display: grid;
 

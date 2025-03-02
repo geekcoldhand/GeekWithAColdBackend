@@ -1,34 +1,25 @@
 "use client";
-import React, { JSX, useState, useRef } from "react";
+import React, { JSX, useState, useRef, useCallback } from "react";
 import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import {
+	EmbeddedCheckout,
+	EmbeddedCheckoutProvider,
+} from "@stripe/react-stripe-js";
+import StripePromise from "../../context/stripePromise";
+
+const stripe = StripePromise;
 
 export default function StripeCheckout({
 	price,
 }: {
 	price: number;
 }): React.ReactNode {
-	const stripe = useStripe();
-	const elements = useElements();
 	const [isLoading, setIsLoading] = useState(false);
-	
+	const [showCheckout, setShowCheckout] = useState(false);
 
-	const cardElement = elements?.getElement(CardElement);
-	
-	const handleSubmit = async (event: React.FormEvent) => {
-		event.preventDefault();
-		console.log("handle submit step 1");
-        if ( !cardElement) {
-            // Handle the case where cardElement is null
-            alert("Error: Card element not found.");
-            return;
-        }
-		if (!stripe || !elements) {
-			return;
-		}
-		setIsLoading(true);
-		console.log("handle submit step 2");
-
-		const stripePaymentResponse = await fetch("/api/stripe-checkout", {
+	const fetchClientSecret = useCallback(() => {
+		return fetch("/api/stripe-checkout", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -37,31 +28,36 @@ export default function StripeCheckout({
 				amount: price * 10,
 				currency: "usd",
 			}),
-		});
-		const { clientSecret } = await stripePaymentResponse.json();
-		const { error, paymentIntent } = await stripe.confirmCardPayment(
-			clientSecret,
-			{
-				payment_method: {
-					card: cardElement,
-				},
-			}
-		);
-		if (error) {
-			alert("Oh no! Your card payment didn't go through. Please try again.");
-		} else {
-			alert("GWACH thanks you for your purchase!");
-		}
-		setIsLoading(false);
+		})
+			.then((res) => res.json())
+			.then((data) => data.client_secret);
+	}, []);
+
+	const options = { fetchClientSecret };
+	//console.log("Client fetching secret", fetchClientSecret());
+
+	const handleCheckoutClick = (event: React.FormEvent) => {
+		event.preventDefault();
+		console.log("handle submit step 1");
+
+		setIsLoading(true);
+		setShowCheckout(true);
 	};
 
 	return (
-		<form className = "stripe-element-form" onSubmit={handleSubmit}>
-			<CardElement className="stripe-card" ></CardElement>	
-			<button className = "stripe-element-button" type="submit" disabled={!stripe || isLoading}>
-				{isLoading ? "Processing..." : "Pay"}
-				</button>
-			
-		</form>
+		<div className="stripe-element-form">
+			{showCheckout && (
+				<EmbeddedCheckoutProvider stripe={stripe} options={options}>
+					<EmbeddedCheckout />
+				</EmbeddedCheckoutProvider>
+			)}
+			<button
+				onClick={handleCheckoutClick}
+				className="stripe-element-button"
+				disabled={isLoading}
+			>
+				{isLoading ? "Processing..." : "Checkout"}
+			</button>
+		</div>
 	);
 }

@@ -5,22 +5,35 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 const origin = process.env.NEXTAUTH_URL as string;
 
 export async function POST(req: Request) {
-    const { price } = await req.json();
+	try {
+		const { amount, currency } = await req?.json();
 
-    // Create a Stripe checkout session
-    const session = await stripe.checkout.sessions.create({
-        line_items: [
-            {
-                // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-                price: price,
-                quantity: 1,
-            },
-        ],
-        mode: "payment",
-        success_url: `${origin}/success`,
-        cancel_url: `${origin}/cancel`,
-    });
+		const session = await stripe.checkout.sessions.create({
+			ui_mode: "embedded",
+			payment_method_types: ["card"],
+			line_items: [
+				{
+					price_data: {
+						currency: currency,
+						product_data: {
+							name: "T-shirt", //TODO: Replace with actual name
+						},
+						unit_amount: 2000, //TODO: Replace with actual price
+					},
+					quantity: 1, //TODO: Replace with actual quantity
+				},
+			],
+			mode: "payment",
+			return_url: `${origin}/return?session_id={CHECKOUT_SESSION_ID}`,
+		});
 
-    // Return the session URL as a JSON response
-    return NextResponse.json({ url: session.url });
+		//console.log("Stripe checkout session created from API", session);
+		return NextResponse.json({ client_secret: session.client_secret });
+	} catch (error) {
+		console.error("Error creating Stripe checkout session:", error);
+		return NextResponse.json(
+			{ error: "Failed to create Stripe checkout session" },
+			{ status: 500 }
+		);
+	}
 }

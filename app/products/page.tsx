@@ -6,6 +6,7 @@ import { useProductsContext } from "../../context/ProductContext";
 import Image from "next/image";
 import { StaticImageData } from "next/image";
 import Sandbox from "../../components/Sandbox/Sandbox";
+import Footer from "../../components/Footer/Footer";
 
 import "./ProductList.css";
 
@@ -52,6 +53,7 @@ const ProductList = () => {
 				</div>
 			</div>
 			<Sandbox />
+			<Footer />
 		</>
 	);
 };

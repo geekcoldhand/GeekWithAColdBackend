@@ -7,8 +7,6 @@ import SplashPage from "../components/Splash/Splash";
 import { ProductsProvider } from "../context/ProductContext";
 import Footer from "../components/Footer/Footer";
 
-// TODO import Errorpage
-// TODO import footer
 export const metadata = {
 	title: "GWACH Atelier",
 	icons: {
@@ -29,7 +27,7 @@ export default function RootLayout({
 						<SplashPage />
 						<Navbar />
 						{children}
-						<Footer />
+						
 					</CartProvider>
 				</ProductsProvider>
 			</body>
