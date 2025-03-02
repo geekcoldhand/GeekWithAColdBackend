@@ -4,6 +4,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #99b4c8;
 }
 
 .splash-container {
@@ -19,5 +20,9 @@
 
 .splash-image{
  width: 230px;
- height: 200px;
+ height: 13rem;
+}
+
+body{
+    height: 100vh;
 }

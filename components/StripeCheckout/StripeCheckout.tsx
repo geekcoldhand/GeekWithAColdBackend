@@ -38,7 +38,7 @@ export default function StripeCheckout({
 
 	const handleCheckoutClick = (event: React.FormEvent) => {
 		event.preventDefault();
-		console.log("handle submit step 1");
+		//console.log("handle submit step 1");
 
 		setIsLoading(true);
 		setShowCheckout(true);
@@ -47,9 +47,11 @@ export default function StripeCheckout({
 	return (
 		<div className="stripe-element-form">
 			{showCheckout && (
-				<EmbeddedCheckoutProvider stripe={stripe} options={options}>
-					<EmbeddedCheckout />
-				</EmbeddedCheckoutProvider>
+				<dialog open>
+					<EmbeddedCheckoutProvider stripe={stripe} options={options}>
+						<EmbeddedCheckout />
+					</EmbeddedCheckoutProvider>
+				</dialog>
 			)}
 			<button
 				onClick={handleCheckoutClick}

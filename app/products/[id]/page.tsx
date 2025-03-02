@@ -51,8 +51,8 @@ const SingleProductPage = () => {
 							/>
 							<section className="content-prod">
 								<h2>{name}</h2>
-								{<AddToCart product={products} />}
 								<h5 className="price-prod">${price}</h5>
+								{<AddToCart product={products} />}
 								<p className="description"> {description}</p>
 								<p className="info-prod">
 									<span>Available : </span>

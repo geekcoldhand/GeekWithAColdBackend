@@ -5,7 +5,7 @@ flex-direction: column;
 .back-button{
 	width: 5rem;
 	background-color: transparent;
-	border: .1px solid black;
+	border: none;
 	color: black;
 	cursor: pointer;
 	margin-left: 1rem;
@@ -41,6 +41,13 @@ flex-direction: column;
 	margin-top: 2rem;
 }
 
+.price-prod{
+	margin-top: 1rem;
+}
+.prod-photo{
+	margin-bottom: .5rem;
+}
+
 .size-container {
 	margin-block: 1rem;
 }
@@ -59,7 +66,7 @@ flex-direction: column;
 	padding-inline: .5rem;
 	border-radius: 10rem; 
 	border: .1px solid rgb(42, 40, 40);
-	padding: .2rem;
+	padding: .2rem 1.5rem;
 	background-color: #8ca5d7;
 }
 .btn-container select{
@@ -70,9 +77,13 @@ flex-direction: column;
 	width: fit-content;
 	padding-inline: 0.5rem;
 	margin-inline: auto;
+	margin-right: .5rem;
 }
 .description {
 	line-height: 2.3;
+	font-size: .8rem;
+	color: #444;
+	margin: 1rem auto;
 }
 
 /* Tablet ~ Moblie */

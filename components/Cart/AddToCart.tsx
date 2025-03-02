@@ -59,15 +59,15 @@ const AddToCart = React.memo(function AddToCart({ product }: AddToCartProps) {
 	return (
 		<div className="btn-container">
 			<div className="size-container">
+			<button className="size-chart">Size Chart</button>
 			<select onChange={handleSizeChange}>
 				<option value="">Select Size</option>
 				<option value="s">Small</option>
 				<option value="m">Medium</option>
 				<option value="l">Large</option>
-			</select>
+				</select>	
 			</div>
 	
-			<button className="size-chart">Size Chart</button>
 			<Link
 				href="" // Replace with the actual href if needed
 				className="add-cart"
