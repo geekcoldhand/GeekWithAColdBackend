@@ -1,6 +1,4 @@
 
-
-
 const data = [
   {
     id: "recZkNf2kwmdBcqd0",

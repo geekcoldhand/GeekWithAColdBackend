@@ -30,7 +30,7 @@ interface State {
 type Action =
 	| { type: "CLEAR" }
 	| { type: "REMOVE"; payload: string }
-	| { type: "CART"; payload: { id: string; amount: number; product: CartItem } }
+	| { type: "CART"; payload: { id: string; amount: number; product: CartItem; size: string } }
 	| { type: "INC"; payload: string }
 	| { type: "DEC"; payload: string }
 	| { type: "GET_TOTALS" };
@@ -156,8 +156,8 @@ const CartProvider = ({ children }: { children: ReactNode }) => {
 	const [state, dispatch] = useReducer(reducer, initialState);
 
 	// Add to cart
-	const addToCart = (id: string, amount: number, product: CartItem) => {
-		dispatch({ type: "CART", payload: { id, amount, product } });
+	const addToCart = (id: string, amount: number, product: CartItem, size: string) => {
+		dispatch({ type: "CART", payload: { id, amount, product, size } });
 	};
 
 	// Remove item

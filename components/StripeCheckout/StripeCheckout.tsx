@@ -47,7 +47,7 @@ export default function StripeCheckout({
 	return (
 		<div className="stripe-element-form">
 			{showCheckout && (
-				<dialog open>
+				<dialog open className="dialog" onClose={() => setShowCheckout(false)}>
 					<EmbeddedCheckoutProvider stripe={stripe} options={options}>
 						<EmbeddedCheckout />
 					</EmbeddedCheckoutProvider>

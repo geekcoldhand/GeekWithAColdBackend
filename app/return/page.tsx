@@ -14,12 +14,12 @@ export default async function CheckoutReturn({ searchParams }: any) {
  // console.log("return page", session);
 
   if (session?.status === "open") {
-    return <p>Oh No! Payment did not work. Please try again. </p>;
+    return <p style={{ textAlign: "center" }}>Oh No! Payment did not work. Please try again. </p>;
   }
 
   if (session?.status === "complete") {
     return (
-      <h3>
+      <h3 style={{ textAlign: "center" }}>
        Thank you for supporting your local Atelier. Please check your email for confirmation and shipping details.
       </h3>
     );

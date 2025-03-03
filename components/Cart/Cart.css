@@ -18,7 +18,6 @@
 
 .cart {
 	display: grid;
-
 	grid-template-columns:  auto 140px 70px 70px;
 	grid-template-rows: 75px;
 	gap: 3rem 1rem;
@@ -29,7 +28,10 @@
     margin-inline: auto;
     width: fit-content;
 }
-
+.dialog{
+	margin-inline: auto;
+	margin-top: 1rem;
+}
 .title {
 	height: 100%;
 	display: grid;

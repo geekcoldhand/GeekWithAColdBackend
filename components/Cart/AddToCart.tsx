@@ -28,12 +28,20 @@ const AddToCart = React.memo(function AddToCart({ product }: AddToCartProps) {
 
 	const handleSizeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
 		// filter if the s, m or l selected
-		if (e.target.value === "s" || e.target.value === "m" || e.target.value === "l") {
+		if (e.target.value === "s" || e.target.value === "m" || e.target.value === "l" || e.target.value === "t") {
 		setSize(e.target.value);
 		} else {
 			setSize("");
 		}
 		
+	};
+
+	const handleAddToCart = (e: Event) => {
+		e.preventDefault();
+		if (size === "") {
+			return;
+		}
+		addToCart(id, amount, product, size);
 	};
 
 	const increase = () => {
@@ -65,13 +73,15 @@ const AddToCart = React.memo(function AddToCart({ product }: AddToCartProps) {
 				<option value="s">Small</option>
 				<option value="m">Medium</option>
 				<option value="l">Large</option>
+				<option value="t">Tailored</option>
+					
 				</select>	
 			</div>
 	
 			<Link
 				href="" // Replace with the actual href if needed
 				className="add-cart"
-				onClick={() => addToCart(id, amount, product, size)}
+				onClick={handleAddToCart as any}
 			>
 				Add to Bag
 			</Link>

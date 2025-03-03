@@ -1,15 +1,22 @@
 .booking-container{
     margin-inline: auto;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: top;
-    margin-top: 10rem;
+    justify-content: center;
     height: 90vh;
+    position: relative;
 }
 
+.client-input-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
 .date-input{
-    width: 57vw;
+    width: 10rem;
     height: 2rem;
     margin-block: 10px;
     border-radius: 18px;
@@ -25,4 +32,54 @@
 }
 .booking-title{
     font-weight: 200;
+    color: #5589b1;
+    position: absolute;
+    top: 29;
+    text-align: center;
+}
+
+.graphics-container{  
+    height: 11rem;
+    display: flex;
+    color: rgb(128, 101, 101);
+
+}
+
+.graphics-container svg{
+    height: 10rem;
+}
+
+.number-input{
+    height: 2rem;
+    width: 13rem;
+    margin-block: 10px;
+    border-radius: 18px;
+    padding-inline: 11px;
+}
+.time-input{
+    height: 2rem;
+    margin-block: 10px;
+    border-radius: 18px;
+    padding-inline: 11px;
+}
+
+.message-input{
+    height: 4rem;
+    width: 15rem;
+    margin-block: 10px;
+    border-radius: 18px;
+    padding-inline: 11px;
+}
+
+@media screen and (max-width: 768px) {
+
+    .booking-container{
+        flex-direction: column;
+    }
+    .graphics-container svg{
+        height: 7rem;
+    }
+    .graphics-container{
+        height: 7rem;
+    }
 }

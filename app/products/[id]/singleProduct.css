@@ -9,6 +9,7 @@ flex-direction: column;
 	color: black;
 	cursor: pointer;
 	margin-left: 1rem;
+	box-shadow: none;
 }
 
 
@@ -45,7 +46,7 @@ flex-direction: column;
 	margin-top: 1rem;
 }
 .prod-photo{
-	margin-bottom: .5rem;
+	margin-bottom: 1rem;
 }
 
 .size-container {
