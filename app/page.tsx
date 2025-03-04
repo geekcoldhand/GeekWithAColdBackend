@@ -3,6 +3,7 @@ import Banner from "../components/Banner/Banner";
 import Link from "next/link";
 import "./HomeCSS/home.css";
 
+
 export default function Home() {
 	console.log(`
 #  ┏┓┓ ┏┏┓┏┓┓┏
@@ -11,6 +12,11 @@ export default function Home() {
 #  `);
 	return (
 		<div className="info">
+			{/* Video background */}
+			<video autoPlay loop muted playsInline id="myVideo">
+				<source src="/images/backgrounds/theHero.mp4" type="video/mp4" />
+				Your browser does not support the video tag.
+			</video>
 			<Banner />
 			<div className="hero">
 				<div className="content">
@@ -27,7 +33,6 @@ export default function Home() {
 					</div>
 				</div>
 			</div>
-			<div className="drag-section">{/* <DragZone/> */}</div>
 		</div>
 	);
 }

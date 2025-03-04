@@ -32,20 +32,33 @@
     border-radius: 10px;
   }
   .info {
+    position: relative;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    background: url("../../public/images/backgrounds/333Hero.gif")
-    no-repeat center/cover;
-    background-image: blur(5px);
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    background-color: transparent;
   }
-  
+  #myVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Video needs to stays in the background */
+    
+  }
+
   .hero{
     display: flex;
     flex-direction: row;
     width: 100%;
-  
+
   }
+  
   .toggle{
     display: block;
   }

@@ -36,9 +36,10 @@ const AddToCart = React.memo(function AddToCart({ product }: AddToCartProps) {
 		
 	};
 
-	const handleAddToCart = (e: Event) => {
+	const handleAddToCart = (e: any) => {
 		e.preventDefault();
 		if (size === "") {
+			alert("Please select a size");
 			return;
 		}
 		addToCart(id, amount, product, size);
@@ -81,7 +82,7 @@ const AddToCart = React.memo(function AddToCart({ product }: AddToCartProps) {
 			<Link
 				href="" // Replace with the actual href if needed
 				className="add-cart"
-				onClick={handleAddToCart as any}
+				onClick={(e) => handleAddToCart(e)}
 			>
 				Add to Bag
 			</Link>

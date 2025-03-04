@@ -22,6 +22,7 @@ flex-direction: column;
 	align-items: center;
 	height: 80vh;
 	padding: 3rem;
+	margin-inline: auto;
 }
 
 .content-prod {

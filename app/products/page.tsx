@@ -53,7 +53,7 @@ const ProductList = () => {
 				</div>
 			</div>
 			<Sandbox />
-			<Footer />
+			<Footer/>
 		</>
 	);
 };

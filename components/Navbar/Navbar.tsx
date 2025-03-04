@@ -1,6 +1,6 @@
 "use client"; // Mark this component as a Client Component
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useGlobalContext } from "../../context/CartContext";
 import "./Navbar.css";
@@ -12,6 +12,8 @@ const Navbar: React.FC = () => {
 	//const isUser = isAuthenticated && user;
 	const { state } = useGlobalContext();
 	const amount = state.amount;
+
+
 
 	useEffect(() => {
 		const hamMenu = document.querySelector(".ham-menu");
@@ -36,6 +38,7 @@ const Navbar: React.FC = () => {
 
 		// Cleanup
 		return () => {
+	
 			if (hamMenu) {
 				hamMenu.removeEventListener("click", toggleMenu);
 			}
@@ -48,7 +51,7 @@ const Navbar: React.FC = () => {
 	}, []);
 
 	return (
-		<div className="nav">
+		<div id="nav">
 			<div className="nav-container">
 				<ul className="off-screen-links">
 					<li className="links">
@@ -59,6 +62,7 @@ const Navbar: React.FC = () => {
 								alt="logo"
 								width={30}
 								height={30}
+								style={{ height: "auto" }}
 							></Image>
 						</Link>
 					</li>

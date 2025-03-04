@@ -25,8 +25,9 @@
 	font-size: 7px;
 }
 .logo {
-justify-self: center;
-text-align: center;
+	justify-self: center;
+	text-align: center;
+	width: 2rem;
 }
 
 .icon {
@@ -34,8 +35,16 @@ text-align: center;
 }
 .footer {
 	background-color: rgb(255, 255, 255);
-	width: 100%;
+	width: 100vw;
 	margin-inline: auto;
 	bottom: 0;
-   
+	left: 0;
+	position: sticky;
+}
+.statement {
+	text-align: center;
+	font-size: 0.6rem;
+}
+.statement a {
+	font-size: 0.6rem;
 }

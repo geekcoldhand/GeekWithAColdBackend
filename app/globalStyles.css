@@ -152,7 +152,7 @@ Error
  
 }
 .cart-total-checkout article{
-  width: 527px;
+  
 }
 
 .add-cart:hover{
@@ -353,7 +353,8 @@ Cocktail
   display: grid;
   margin-top: 0.5rem;
   padding: 1rem 1rem;
-  width: 45rem;
+  width: fit-content;
+  text-align: center;
   margin-inline:auto;
 }
 .cart-total-checkout h3 {

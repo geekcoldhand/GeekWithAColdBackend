@@ -6,6 +6,7 @@ import { useParams } from "next/navigation";
 import AddToCart from "../../../components/Cart/AddToCart";
 import "./singleProduct.css";
 import Image from "next/image";
+import Footer from "../../../components/Footer/Footer";
 
 const SingleProductPage = () => {
 	const { id } = useParams();
@@ -60,6 +61,7 @@ const SingleProductPage = () => {
 								</p>
 							</section>
 						</div>
+						<Footer/>
 					</div>
 				);
 			})}

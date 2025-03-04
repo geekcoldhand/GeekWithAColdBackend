@@ -1,85 +1,94 @@
-.booking-container{
-    margin-inline: auto;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    height: 90vh;
-    position: relative;
+.booking-box {
+	margin-inline: auto;
+	text-align: center;
 }
 
-.client-input-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.booking-container {
+	margin-inline: auto;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	height: 90vh;
+	position: relative;
+	padding-bottom: 16rem;
 }
 
-
-.date-input{
-    width: 10rem;
-    height: 2rem;
-    margin-block: 10px;
-    border-radius: 18px;
-    padding-inline: 11px;
+.client-input-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-inline: auto;
 }
 
-.confirm-button{
-    padding-inline: 11px;
-    border: none;
-    background-color:#5589b1;
-    color: white;
-    height: 24px;
-}
-.booking-title{
-    font-weight: 200;
-    color: #5589b1;
-    position: absolute;
-    top: 29;
-    text-align: center;
+.date-input {
+	width: 13rem;
+	height: 2rem;
+	margin-block: 10px;
+	border-radius: 18px;
+	padding-inline: 11px;
 }
 
-.graphics-container{  
-    height: 11rem;
-    display: flex;
-    color: rgb(128, 101, 101);
-
+.confirm-button {
+	padding-inline: 11px;
+	border: none;
+	background-color: #5589b1;
+	color: white;
+	height: 24px;
+}
+.booking-title {
+	font-weight: 200;
+	color: #5589b1;
+	width: fit-content;
+	text-align: center;
+	padding: 1rem;
+	margin-inline: auto;
 }
 
-.graphics-container svg{
-    height: 10rem;
+.graphics-container {
+	height: 11rem;
+	display: flex;
+	color: rgb(71, 56, 56);
 }
 
-.number-input{
-    height: 2rem;
-    width: 13rem;
-    margin-block: 10px;
-    border-radius: 18px;
-    padding-inline: 11px;
-}
-.time-input{
-    height: 2rem;
-    margin-block: 10px;
-    border-radius: 18px;
-    padding-inline: 11px;
+.graphics-container svg {
+	height: 10rem;
 }
 
-.message-input{
-    height: 4rem;
-    width: 15rem;
-    margin-block: 10px;
-    border-radius: 18px;
-    padding-inline: 11px;
+.graphics-container svg:not(:last-child) {
+	border-inline-end: solid .1rem #888888;
+}
+
+.number-input {
+	height: 2rem;
+	width: 13rem;
+	margin-block: 10px;
+	border-radius: 18px;
+	padding-inline: 11px;
+}
+.time-input {
+	height: 2rem;
+	margin-block: 10px;
+	border-radius: 18px;
+	padding-inline: 11px;
+}
+
+.message-input {
+	height: 7rem;
+	width: 15rem;
+	margin-block: 10px;
+	border-radius: 18px;
+	padding-inline: 11px;
 }
 
 @media screen and (max-width: 768px) {
-
-    .booking-container{
-        flex-direction: column;
-    }
-    .graphics-container svg{
-        height: 7rem;
-    }
-    .graphics-container{
-        height: 7rem;
-    }
+	.booking-container {
+		flex-direction: column;
+	}
+	.graphics-container svg {
+		height: 7rem;
+	}
+	.graphics-container {
+		height: 7rem;
+	}
 }
