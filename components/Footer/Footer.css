@@ -44,10 +44,12 @@
 .statement {
 	text-align: center;
 	font-size: 0.6rem;
-	
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 .statement a {
 	width: fit-content;
 	font-size: 0.6rem;
-	margin-inline: auto;
+	padding-bottom: 1rem;
 }

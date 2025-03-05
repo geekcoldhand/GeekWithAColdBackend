@@ -53,10 +53,9 @@ const Footer = () => {
 				</a>
 			</div>
 			<div className="statement">
-				
-				Powered by
+				<p> &copy; {new Date().getFullYear()} Powered by A Geek With A Cold Hand </p>
+
 				<a href="https://github.com/geekcoldhand">
-					GWACH
 					<Image
 						className="logo"
 						src={whiteAtom.src}
