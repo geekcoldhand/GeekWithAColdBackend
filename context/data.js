@@ -53,7 +53,7 @@ const data = [
 	{
 		id: "recNZ0koOqEmilmoz",
 		name: "Polor Fur Helment",
-		price: 100,
+		price: 90,
 		image: "/images/clothes/hat1.png",
 		company: "GWACH Atelier",
 		description:
@@ -66,7 +66,7 @@ const data = [
 	{
 		id: "rec34857vbfeoz",
 		name: "Grizzly Fur Helment",
-		price: 100,
+		price: 90,
 		image: "/images/clothes/hat4.png",
 		company: "GWACH Atelier",
 		description:
@@ -79,7 +79,7 @@ const data = [
 	{
 		id: "recNZ0ko4353olmoz",
 		name: "Panther Fur Helment",
-		price: 100,
+		price: 90,
 		image: "/images/clothes/hat3.png",
 		company: "GWACH Atelier",
 		description:
@@ -92,7 +92,7 @@ const data = [
 	{
 		id: "recEHmzvupvT8ZONH",
 		name: "Fur Collar Polo",
-		price: 60,
+		price: 95,
 		image: "/images/clothes/shirt5.png",
 		company: "GWACH",
 		description:
@@ -131,7 +131,7 @@ const data = [
 	{
 		id: "recotY5Nh00DQFdkm",
 		name: "Parachute Pants",
-		price: 120,
+		price: 100,
 		image: "/images/clothes/pant4.png",
 		company: "GWACH Atelier SS 2025",
 		description:
@@ -144,7 +144,7 @@ const data = [
 	{
 		id: "rec1Ntk7siEEW9ha1",
 		name: "Cropped Hoodie ",
-		price: 90,
+		price: 95,
 		image: "/images/clothes/hoodie1.png",
 		company: "Only",
 		description:
@@ -158,7 +158,7 @@ const data = [
 	{
 		id: "recrfxv3EwpvJwvjq",
 		name: "Pin-Pleated Bustle Denims",
-		price: 200,
+		price: 170,
 		image: "/images/clothes/pant1.png",
 		company: "GWACH Atelier FW 2025",
 		description:
@@ -171,7 +171,7 @@ const data = [
 	{
 		id: "recoW8ecgjtKx2Sj2",
 		name: "Americana Button Up",
-		price: 90,
+		price: 85,
 		image: "/images/clothes/shirt6.png",
 		company: "GWACH Atelier SS 2025",
 		description:
