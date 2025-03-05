@@ -1,12 +1,18 @@
 "use client";
 import "./Sandbox.css";
 import React, { useEffect, useRef, useState } from "react";
+import { useProductsContext } from "../../context/ProductContext";
 import Image from "next/image";
 import logo from "../../public/svgs/whiteAtom.svg";
 // ACCESORIES
 import vest2 from "../../public/images/clothes/vest2.png";
+import vest3 from "../../public/images/clothes/vest3.png";
 import hat1 from "../../public/images/clothes/hat1.png";
-import hat2 from "../../public/images/clothes/hat2.png";
+import hat3 from "../../public/images/clothes/hat3.png";
+import hat4 from "../../public/images/clothes/hat4.png";
+import bag1 from "../../public/images/clothes/bag1.png";
+import tie from "../../public/images/clothes/tie1.png";
+
 // TOPS
 import jacket1 from "../../public/images/clothes/jacket1.png";
 import jacket2 from "../../public/images/clothes/jacket2.png";
@@ -15,9 +21,11 @@ import shirt3 from "../../public/images/clothes/shirt3.png";
 import shirt4 from "../../public/images/clothes/shirt4.png";
 import shirt5 from "../../public/images/clothes/shirt5.png";
 import shirt6 from "../../public/images/clothes/shirt6.png";
+import hoodie from "../../public/images/clothes/hoodie1.png";
 // PANTS
+// import pant1 from "../../public/images/clothes/pant1.png";
+import pant2 from "../../public/images/clothes/pant2.png";
 import pant1 from "../../public/images/clothes/pant1.png";
-import pant3 from "../../public/images/clothes/pant3.png";
 import pant4 from "../../public/images/clothes/pant4.png";
 import pant5 from "../../public/images/clothes/pant5.png";
 import pant6 from "../../public/images/clothes/pant6.png";
@@ -35,6 +43,7 @@ interface ItemStateAndPosition {
 }
 
 const Sandbox = () => {
+	const { products } = useProductsContext();
 	const containerRef = useRef<HTMLDivElement | null>(null);
 	const dragItemsRef = useRef<HTMLDivElement[]>([]);
 	const [itemStateAndPosition, setItemStateAndPosition] =
@@ -290,7 +299,7 @@ const Sandbox = () => {
 				/>
 				<Image
 					className="box pants"
-					src={pant3.src}
+					src={pant2.src}
 					width={100}
 					height={100}
 					style={{ height: "auto" }}
@@ -313,8 +322,8 @@ const Sandbox = () => {
 					alt="logo"
 				/>
 				<Image
-					className="box pants"
-					src={pant6.src}
+					className="box shirts"
+					src={hoodie.src}
 					width={100}
 					height={100}
 					style={{ height: "auto" }}
@@ -330,7 +339,7 @@ const Sandbox = () => {
 				/>
 				<Image
 					className="box shirts"
-					src={shirt1.src}
+					src={bag1.src}
 					width={100}
 					height={100}
 					style={{ height: "auto" }}
@@ -354,7 +363,7 @@ const Sandbox = () => {
 				/>
 				<Image
 					className="box shirts"
-					src={shirt3.src}
+					src={vest3.src}
 					width={100}
 					height={100}
 					style={{ height: "auto" }}
@@ -401,12 +410,28 @@ const Sandbox = () => {
 					className="box hats"
 				/>
 				<Image
-					src={hat2}
+					src={hat3}
 					width={100}
 					height={100}
 					style={{ height: "auto" }}
 					alt="logo"
 					className="box hats"
+				/>
+				<Image
+					src={hat4}
+					width={100}
+					height={100}
+					style={{ height: "auto" }}
+					alt="logo"
+					className="box hats"
+				/>
+				<Image
+					src={tie}
+					width={100}
+					height={100}
+					style={{ height: "auto" }}
+					alt="logo"
+					className="box shirts"
 				/>
 			</div>
 		</div>
