@@ -44,7 +44,10 @@
 .statement {
 	text-align: center;
 	font-size: 0.6rem;
+	
 }
 .statement a {
+	width: fit-content;
 	font-size: 0.6rem;
+	margin-inline: auto;
 }

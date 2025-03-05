@@ -1,5 +1,5 @@
 const data = [
-  {
+	{
 		id: "recd1jIVIEChmiwhe",
 		name: "Holster Vest",
 		price: 110,
@@ -25,7 +25,7 @@ const data = [
 		amount: 1,
 		stock: 4,
 	},
-  {
+	{
 		id: "recskhfw38392x2Sj2",
 		name: "Transparent Sling Bag",
 		price: 90,
@@ -36,8 +36,8 @@ const data = [
 		category: "Casual",
 		amount: 1,
 		stock: 5,
-  },
-  {
+	},
+	{
 		id: "recjjjIsd234whe",
 		name: "Lepoard Print Tie",
 		price: 50,
@@ -49,8 +49,8 @@ const data = [
 		shipping: true,
 		amount: 1,
 		stock: 4,
-  },
-  {
+	},
+	{
 		id: "recNZ0koOqEmilmoz",
 		name: "Polor Fur Helment",
 		price: 100,
@@ -106,7 +106,7 @@ const data = [
 		id: "rec5NBwZ5zCD9nfF0",
 		name: "Leather Bustle Denimns",
 		price: 150,
-		image: "/images/clothes/pant2-1.png",
+		image: "/images/clothes/pant3.png",
 		company: "GWACH",
 		description:
 			"Crafted from premium fabrics, our latest piece embodies the rebellious spirit of GWACH's Fall 24 collection.",
@@ -114,7 +114,6 @@ const data = [
 		amount: 1,
 		stock: 4,
 	},
-
 
 	{
 		id: "recoM2MyHJGHLVi5l",
@@ -144,23 +143,23 @@ const data = [
 	},
 	{
 		id: "rec1Ntk7siEEW9ha1",
-		name: "Waxed Denim Bustier Top",
+		name: "Cropped Hoodie ",
 		price: 90,
-		image: "/images/clothes/pant7.png",
+		image: "/images/clothes/hoodie1.png",
 		company: "Only",
 		description:
-			"Crafted from premium fabrics, our latest piece embodies the rebellious spirit of GWACH's Fall 24 collection.",
+			"Crafted from premium 400 GSM fabics, our latest piece embodies the quality and rebellionous spirit of GWACH's Fall 24 collection.",
 		company: "GWACH Atelier FW 2025",
 		shipping: true,
 		amount: 1,
 		stock: 2,
 	},
-	
+
 	{
 		id: "recrfxv3EwpvJwvjq",
 		name: "Pin-Pleated Bustle Denims",
 		price: 200,
-		image: "/images/clothes/pant1-2.png",
+		image: "/images/clothes/pant1.png",
 		company: "GWACH Atelier FW 2025",
 		description:
 			"Crafted from premium fabrics, our latest piece embodies the rebellious spirit of GWACH's Fall 24 collection.",
@@ -181,6 +180,5 @@ const data = [
 		amount: 1,
 		stock: 5,
 	},
-
 ];
 export default data;
