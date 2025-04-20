@@ -2,8 +2,9 @@
 import "./Sandbox.css";
 import React, { useEffect, useRef, useState } from "react";
 import { useProductsContext } from "../../context/ProductContext";
-import Image from "next/image";
-import logo from "../../public/svgs/whiteAtom.svg";
+import { StaticImageData } from "next/image";
+import Image from 'next/image';
+
 // ACCESORIES
 import vest2 from "../../public/images/clothes/vest2.png";
 import vest3 from "../../public/images/clothes/vest3.png";
@@ -42,7 +43,17 @@ interface ItemStateAndPosition {
 	[key: string]: ItemState; // Allow string keys with values of type ItemState
 }
 
-const Sandbox = () => {
+interface Product {
+	id: string;
+	name: string;
+	price: number;
+	amount: number;
+    image: string | StaticImageData ;
+    description: string;
+    stock: number;
+}
+
+export const Sandbox = () => {
 	const { products } = useProductsContext();
 	const containerRef = useRef<HTMLDivElement | null>(null);
 	const dragItemsRef = useRef<HTMLDivElement[]>([]);
@@ -50,6 +61,29 @@ const Sandbox = () => {
 		useState<ItemStateAndPosition>({});
 
 	let count = 190;
+	const addClothesToProductContext = (items: HTMLDivElement[]) =>{
+		items.map((item, index) => {
+			let stringUrl = item.getAttribute("src") as string;
+			let match = stringUrl.match(/%2F([^%]+)\.png/);
+			const fileName = match ? match[1] : null;
+			console.log(fileName);
+			let image = item?.getAttribute("src");
+			if (!image) return;
+			if (!fileName) return;
+			let productDetials: Product = {
+				id: item.id,
+				name: fileName,
+				price: 0,
+				amount: 0,
+				image: image,
+				description: "",
+				stock: 0
+			}
+			products.push(... [productDetials]);
+		});
+	}
+
+
 	const alignItemPosition = (item: HTMLDivElement) => {
 		count = count + 50;
 		const container = containerRef.current;
@@ -111,6 +145,8 @@ const Sandbox = () => {
 	}
 
 	const populateBoxesWithDelay = (items: HTMLDivElement[]) => {
+		//add to product context
+		addClothesToProductContext(items);
 		setTimeout(() => {
 			positionItemsByClass(items);
 		}, 100); // You might want a single delay or other strategy
@@ -289,7 +325,18 @@ const Sandbox = () => {
 						{/* <Image src={logo.src} alt="logo" width={40} height={40}/> */}
 					</span>
 				</div>
-				<Image
+				{products.map((item, index) => (
+					<Image
+						className="box pants"
+						src={item.image}
+						key={index}
+						width={100}
+						height={100}
+						style={{ height: "auto" }}
+						alt="clothing item"
+					/>
+				))}
+				{/* <Image
 					className="box pants"
 					src={pant1.src}
 					width="100"
@@ -432,7 +479,7 @@ const Sandbox = () => {
 					style={{ height: "auto" }}
 					alt="logo"
 					className="box shirts"
-				/>
+				/> */}
 			</div>
 		</div>
 	);

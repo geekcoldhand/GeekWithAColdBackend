@@ -53,7 +53,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
     width: 100%;
     height: fit-content;
     text-align: center;

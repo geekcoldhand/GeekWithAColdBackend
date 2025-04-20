@@ -13,7 +13,7 @@ export default function Home() {
 	return (
 		<div className="info">
 			{/* Video background */}
-			<video autoPlay loop muted playsInline id="myVideo">
+			<video autoPlay loop muted playsInline id="myVideo"> 
 				<source src="/images/backgrounds/theHero.mp4" type="video/mp4" />
 				Your browser does not support the video tag.
 			</video>
