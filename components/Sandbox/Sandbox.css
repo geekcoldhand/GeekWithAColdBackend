@@ -82,24 +82,25 @@
 	border-top-right-radius: 15px;
 }
 
-.shirts {
+.shirt, .vest , .jacket, .hoodie{
 	width: 100px;
 }
-.pants {
+.pant {
 	width: 93px;
 }
-.hats{
+.hat, .tie, .bag{
     width: 80px;
 }
 
 @media screen and (max-width: 768px) {
-	.shirts {
+	.shirt, .vest , .jacket, .hoodie{
 		width: 60px;
 	}
-	.pants {
+	.pant {
 		width: 50px;
 	}
-	.hats{
+	.hat, .tie, .bag{
 		width: 50px;
 	}
+	
 }

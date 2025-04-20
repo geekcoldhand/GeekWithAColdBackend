@@ -12,7 +12,8 @@ interface Product {
 	amount: number;
     image: string | StaticImageData;
     description: string;
-    stock: number;
+	stock: number;
+	category: string;
 }
 
 // Define types for the state

@@ -5,33 +5,6 @@ import { useProductsContext } from "../../context/ProductContext";
 import { StaticImageData } from "next/image";
 import Image from 'next/image';
 
-// ACCESORIES
-import vest2 from "../../public/images/clothes/vest2.png";
-import vest3 from "../../public/images/clothes/vest3.png";
-import hat1 from "../../public/images/clothes/hat1.png";
-import hat3 from "../../public/images/clothes/hat3.png";
-import hat4 from "../../public/images/clothes/hat4.png";
-import bag1 from "../../public/images/clothes/bag1.png";
-import tie from "../../public/images/clothes/tie1.png";
-
-// TOPS
-import jacket1 from "../../public/images/clothes/jacket1.png";
-import jacket2 from "../../public/images/clothes/jacket2.png";
-import shirt1 from "../../public/images/clothes/shirt1.png";
-import shirt3 from "../../public/images/clothes/shirt3.png";
-import shirt4 from "../../public/images/clothes/shirt4.png";
-import shirt5 from "../../public/images/clothes/shirt5.png";
-import shirt6 from "../../public/images/clothes/shirt6.png";
-import hoodie from "../../public/images/clothes/hoodie1.png";
-// PANTS
-// import pant1 from "../../public/images/clothes/pant1.png";
-import pant2 from "../../public/images/clothes/pant2.png";
-import pant1 from "../../public/images/clothes/pant1.png";
-import pant4 from "../../public/images/clothes/pant4.png";
-import pant5 from "../../public/images/clothes/pant5.png";
-import pant6 from "../../public/images/clothes/pant6.png";
-import pant7 from "../../public/images/clothes/pant7.png";
-
 // Define the types
 interface ItemState {
 	isDragging: boolean;
@@ -50,7 +23,8 @@ interface Product {
 	amount: number;
     image: string | StaticImageData ;
     description: string;
-    stock: number;
+	stock: number;
+	category: string;
 }
 
 export const Sandbox = () => {
@@ -60,40 +34,7 @@ export const Sandbox = () => {
 	const [itemStateAndPosition, setItemStateAndPosition] =
 		useState<ItemStateAndPosition>({});
 
-	let count = 190;
-	const addClothesToProductContext = (items: HTMLDivElement[]) =>{
-		items.map((item, index) => {
-			let stringUrl = item.getAttribute("src") as string;
-			let match = stringUrl.match(/%2F([^%]+)\.png/);
-			const fileName = match ? match[1] : null;
-			console.log(fileName);
-			let image = item?.getAttribute("src");
-			if (!image) return;
-			if (!fileName) return;
-			let productDetials: Product = {
-				id: item.id,
-				name: fileName,
-				price: 0,
-				amount: 0,
-				image: image,
-				description: "",
-				stock: 0
-			}
-			products.push(... [productDetials]);
-		});
-	}
-
-
-	const alignItemPosition = (item: HTMLDivElement) => {
-		count = count + 50;
-		const container = containerRef.current;
-		const containerBoundsRect = container?.getBoundingClientRect();
-		if (!containerBoundsRect) return;
-		const maxY = containerBoundsRect.height - item.offsetHeight - count;
-		item.style.top = `${maxY}px`;
-	};
-
-	function positionItemsByClass(items: HTMLDivElement[]) {
+	const setPositionItemsByClass = (items: HTMLDivElement[]) => {
 		// Group items by their class
 		const shirtItems: HTMLDivElement[] = [];
 		const pantsItems: HTMLDivElement[] = [];
@@ -102,34 +43,32 @@ export const Sandbox = () => {
 
 		// Categorize items
 		items.forEach((item) => {
-			if (item.classList.contains("shirt")) {
+			if (item.classList.contains("shirt" || "hoodie" || "jacket" || "vest"|| "tie")) {
 				shirtItems.push(item);
-			} else if (item.classList.contains("pants")) {
+			} else if (item.classList.contains("pant")) {
 				pantsItems.push(item);
-			} else if (item.classList.contains("hats")) {
+			} else if (item.classList.contains("hat")) {
 				hatItems.push(item);
 			} else {
 				otherItems.push(item);
 			}
 		});
 
-		// Position each item group separately
-		positionGroup(shirtItems, 10, 50, 10); // shirts start at y=100
-		positionGroup(pantsItems, 10, 300, 10); // pants start at y=300
-		positionGroup(hatItems, 10, 50, 10); // hats start at y=50
-		positionGroup(otherItems, 10, 200, 10); // others start at y=200
+		// seperatre postion groups
+		setPositionGroup(shirtItems, 10, 100, 10); // shirts start at y=100
+		setPositionGroup(pantsItems, 10, 300, 10); // pants start at y=300
+		setPositionGroup(hatItems, 10, 50, 10); // hats start at y=50
+		setPositionGroup(otherItems, 10, 200, 10); // others start at y=200
 	}
 
-	function positionGroup(
+	const setPositionGroup = (
 		items: HTMLDivElement[],
 		startX: number,
-		y: number,
+		startY: number,
 		spacingX: number
-	) {
+	) => {
 		items.forEach((item, index) => {
-			//const x = startX + index * (item.offsetWidth + spacingX); // Calculate X position
-
-			// Ensure the item stays within the container bounds
+			// container bounds
 			const container = document.getElementById("drag-container");
 			const containerBoundsRect = container?.getBoundingClientRect();
 			if (!containerBoundsRect) return;
@@ -137,18 +76,17 @@ export const Sandbox = () => {
 			const maxX = containerBoundsRect.width - item.offsetWidth;
 			const maxY = containerBoundsRect.height - item.offsetHeight;
 
-			const x = startX + Math.floor(Math.random() * (maxX - startX));
+			const currX = startX + Math.floor(Math.random() * (maxX - startX));
 
-			item.style.left = `${Math.min(x, maxX)}px`; // Ensure X position doesn't exceed container width
-			item.style.top = `${Math.min(y, maxY)}px`; // Ensure Y position doesn't exceed container height
+			item.style.left = `${Math.min(currX, maxX)}px`; // container width
+			item.style.top = `${Math.min(startY, maxY)}px`; // container height
 		});
 	}
 
 	const populateBoxesWithDelay = (items: HTMLDivElement[]) => {
 		//add to product context
-		addClothesToProductContext(items);
 		setTimeout(() => {
-			positionItemsByClass(items);
+			setPositionItemsByClass(items);
 		}, 100); // You might want a single delay or other strategy
 	};
 
@@ -208,7 +146,8 @@ export const Sandbox = () => {
 		touchedOrClicked = true;
 		moved = false;
 		//item.classList.add('grow-on-drag');
-		startDrag(e.clientX, e.clientY, index, item);
+			startDrag(e.clientX, e.clientY, index, item);	
+		
 	};
 
 	const handleTouchStart = (
@@ -227,6 +166,7 @@ export const Sandbox = () => {
 		dragItemsRef.current = Array.from(
 			document.querySelectorAll(".box")
 		) as HTMLDivElement[];
+		
 		const container = containerRef.current;
 
 		// Populate boxes with delay on mount
@@ -261,9 +201,6 @@ export const Sandbox = () => {
 					return newState;
 				});
 			}
-			if (!moved) {
-				handleAddMetaData(e);
-			}
 			touchedOrClicked = false;
 		};
 
@@ -277,9 +214,7 @@ export const Sandbox = () => {
 					return newState;
 				});
 			}
-			if (!moved) {
-				handleAddMetaData(e);
-			}
+		
 			touchedOrClicked = false;
 		};
 
@@ -322,164 +257,22 @@ export const Sandbox = () => {
 					<button className="macos-buttons green"></button>
 					<button className="macos-buttons yellow"></button>
 					<span className="macos-text">
-						{/* <Image src={logo.src} alt="logo" width={40} height={40}/> */}
+						GWACH
 					</span>
 				</div>
-				{products.map((item, index) => (
+				
+				{products.map((product, index) => (
 					<Image
-						className="box pants"
-						src={item.image}
+						className={`${product.category} box`}
+						src={product.image}
 						key={index}
 						width={100}
 						height={100}
 						style={{ height: "auto" }}
-						alt="clothing item"
+						alt={product.name}
 					/>
 				))}
-				{/* <Image
-					className="box pants"
-					src={pant1.src}
-					width="100"
-					height="100"
-					style={{ height: "auto" }}
-					alt="logo"
-				/>
-				<Image
-					className="box pants"
-					src={pant2.src}
-					width={100}
-					height={100}
-					style={{ height: "auto" }}
-					alt="logo"
-				/>
-				<Image
-					className="box pants"
-					src={pant4.src}
-					width={100}
-					height={100}
-					style={{ height: "auto" }}
-					alt="logo"
-				/>
-				<Image
-					className="box pants"
-					src={pant5.src}
-					width={100}
-					height={100}
-					style={{ height: "auto" }}
-					alt="logo"
-				/>
-				<Image
-					className="box shirts"
-					src={hoodie.src}
-					width={100}
-					height={100}
-					style={{ height: "auto" }}
-					alt="logo"
-				/>
-				<Image
-					className="box pants"
-					src={pant7.src}
-					width={100}
-					height={100}
-					style={{ height: "auto" }}
-					alt="logo"
-				/>
-				<Image
-					className="box shirts"
-					src={bag1.src}
-					width={100}
-					height={100}
-					style={{ height: "auto" }}
-					alt="logo"
-				/>
-				<Image
-					className="box shirts"
-					src={shirt4.src}
-					width={100}
-					height={100}
-					style={{ height: "auto" }}
-					alt="logo"
-				/>
-				<Image
-					className="box shirts"
-					src={shirt5.src}
-					width={100}
-					height={100}
-					style={{ height: "auto" }}
-					alt="logo"
-				/>
-				<Image
-					className="box shirts"
-					src={vest3.src}
-					width={100}
-					height={100}
-					style={{ height: "auto" }}
-					alt="logo"
-				/>
-				<Image
-					className="box shirts"
-					src={shirt6.src}
-					width={100}
-					height={100}
-					style={{ height: "auto" }}
-					alt="logo"
-				/>
-				<Image
-					className="box shirts"
-					src={vest2.src}
-					width={100}
-					height={100}
-					style={{ height: "auto" }}
-					alt="logo"
-				/>
-				<Image
-					className="box shirts"
-					src={jacket1.src}
-					width={100}
-					height={100}
-					style={{ height: "auto" }}
-					alt="logo"
-				/>
-				<Image
-					className="box shirts"
-					src={jacket2.src}
-					width={100}
-					height={100}
-					style={{ height: "auto" }}
-					alt="logo"
-				/>
-				<Image
-					src={hat1}
-					width={100}
-					height={80}
-					style={{ height: "auto" }}
-					alt="logo"
-					className="box hats"
-				/>
-				<Image
-					src={hat3}
-					width={100}
-					height={100}
-					style={{ height: "auto" }}
-					alt="logo"
-					className="box hats"
-				/>
-				<Image
-					src={hat4}
-					width={100}
-					height={100}
-					style={{ height: "auto" }}
-					alt="logo"
-					className="box hats"
-				/>
-				<Image
-					src={tie}
-					width={100}
-					height={100}
-					style={{ height: "auto" }}
-					alt="logo"
-					className="box shirts"
-				/> */}
+				
 			</div>
 		</div>
 	);
