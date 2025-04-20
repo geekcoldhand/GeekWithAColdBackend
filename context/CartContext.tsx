@@ -16,7 +16,6 @@ interface CartItem {
 	image: string | StaticImageData;
 	price: number;
 	stock: number;
-   
 }
 
 // Define types for the state
@@ -30,7 +29,10 @@ interface State {
 type Action =
 	| { type: "CLEAR" }
 	| { type: "REMOVE"; payload: string }
-	| { type: "CART"; payload: { id: string; amount: number; product: CartItem; size: string } }
+	| {
+			type: "CART";
+			payload: { id: string; amount: number; product: CartItem; size: string };
+	  }
 	| { type: "INC"; payload: string }
 	| { type: "DEC"; payload: string }
 	| { type: "GET_TOTALS" };
@@ -38,7 +40,12 @@ type Action =
 // Create the context with a default value
 const Cart = createContext<{
 	state: State;
-	addToCart: (id: string, amount: number, product: CartItem, size: string) => void;
+	addToCart: (
+		id: string,
+		amount: number,
+		product: CartItem,
+		size: string
+	) => void;
 	clear: () => void;
 	decrease: (id: string) => void;
 	increase: (id: string) => void;
@@ -79,7 +86,6 @@ const reducer = (state: State, action: Action): State => {
 					image: product.image,
 					price: product.price,
 					stock: product.stock,
-			
 				};
 				return { ...state, cart: [...state.cart, newItem] };
 			}
@@ -156,7 +162,12 @@ const CartProvider = ({ children }: { children: ReactNode }) => {
 	const [state, dispatch] = useReducer(reducer, initialState);
 
 	// Add to cart
-	const addToCart = (id: string, amount: number, product: CartItem, size: string) => {
+	const addToCart = (
+		id: string,
+		amount: number,
+		product: CartItem,
+		size: string
+	) => {
 		dispatch({ type: "CART", payload: { id, amount, product, size } });
 	};
 
@@ -203,7 +214,7 @@ const CartProvider = ({ children }: { children: ReactNode }) => {
 };
 
 // Custom hook to use the cart context
-export const useGlobalContext = () => {
+export const useGlobalCartContext = () => {
 	const context = useContext(Cart);
 	if (!context) {
 		throw new Error("useGlobalContext must be used within a CartProvider");

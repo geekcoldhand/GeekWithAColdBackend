@@ -1,5 +1,5 @@
 import React from "react";
-import { useGlobalContext } from "../../context/CartContext";
+import { useGlobalCartContext } from "../../context/CartContext";
 import type { StaticImageData } from "next/image";
 import Image from "next/image";
 import AmountButtons from "../AmountButtons/AmountButtons";
@@ -21,7 +21,7 @@ const CartItem = React.memo(function CartItem({
 	price,
 	amount,
 }: CartItemProps) {
-	const { remove, decrease, increase } = useGlobalContext();
+	const { remove, decrease, increase } = useGlobalCartContext();
 
 	return (
 		<div className="cart">

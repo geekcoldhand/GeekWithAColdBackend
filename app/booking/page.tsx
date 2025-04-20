@@ -34,6 +34,9 @@ const Booking = () => {
 					"Thank You! We will get back to you soon to confirm your booking."
 				);
 			} else {
+				if (response.status === 500) {
+					
+				}
 				alert("Failed to send email. Please try again.");
 			}
 		} catch (error) {

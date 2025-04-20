@@ -5,7 +5,7 @@ import { useProductsContext } from "../../context/ProductContext";
 import { StaticImageData } from "next/image";
 import Image from 'next/image';
 
-// Define the types
+
 interface ItemState {
 	isDragging: boolean;
 	offsetX: number;
@@ -13,7 +13,7 @@ interface ItemState {
 }
 
 interface ItemStateAndPosition {
-	[key: string]: ItemState; // Allow string keys with values of type ItemState
+	[key: string]: ItemState;
 }
 
 interface Product {
@@ -34,16 +34,19 @@ export const Sandbox = () => {
 	const [itemStateAndPosition, setItemStateAndPosition] =
 		useState<ItemStateAndPosition>({});
 
-	const setPositionItemsByClass = (items: HTMLDivElement[]) => {
-		// Group items by their class
+	let moved = false;
+	let touchedOrClicked = false;
+	let itemWasDragged = false;
+
+	const setItemsPositionByClassHelper = (itemsToLoad: HTMLDivElement[]) => {
 		const shirtItems: HTMLDivElement[] = [];
 		const pantsItems: HTMLDivElement[] = [];
 		const hatItems: HTMLDivElement[] = [];
 		const otherItems: HTMLDivElement[] = [];
 
-		// Categorize items
-		items.forEach((item) => {
-			if (item.classList.contains("shirt" || "hoodie" || "jacket" || "vest"|| "tie")) {
+
+		itemsToLoad.forEach((item) => {
+			if (["shirt", "hoodie", "jacket", "vest", "tie"].some(cls => item.classList.contains(cls)))	{
 				shirtItems.push(item);
 			} else if (item.classList.contains("pant")) {
 				pantsItems.push(item);
@@ -54,45 +57,67 @@ export const Sandbox = () => {
 			}
 		});
 
-		// seperatre postion groups
-		setPositionGroup(shirtItems, 10, 100, 10); // shirts start at y=100
-		setPositionGroup(pantsItems, 10, 300, 10); // pants start at y=300
-		setPositionGroup(hatItems, 10, 50, 10); // hats start at y=50
-		setPositionGroup(otherItems, 10, 200, 10); // others start at y=200
+		setGroupPositionHelper(shirtItems, 10, 100, 10); // shirts start at y=100
+		setGroupPositionHelper(pantsItems, 10, 300, 10); // pants start at y=300
+		setGroupPositionHelper(hatItems, 10, 50, 10); // hats start at y=50
+		setGroupPositionHelper(otherItems, 10, 200, 10); // others start at y=200
 	}
 
-	const setPositionGroup = (
-		items: HTMLDivElement[],
+	const setGroupPositionHelper = (
+		clothingGroupItems: HTMLDivElement[],
 		startX: number,
 		startY: number,
 		spacingX: number
-	) => {
-		items.forEach((item, index) => {
-			// container bounds
+		) => {
+		clothingGroupItems.forEach((item, index) => {
 			const container = document.getElementById("drag-container");
 			const containerBoundsRect = container?.getBoundingClientRect();
 			if (!containerBoundsRect) return;
 
-			const maxX = containerBoundsRect.width - item.offsetWidth;
-			const maxY = containerBoundsRect.height - item.offsetHeight;
+			const setMaxXWidth = containerBoundsRect.width - item.offsetWidth;
+			const setMaxYHeight = containerBoundsRect.height - item.offsetHeight;
 
-			const currX = startX + Math.floor(Math.random() * (maxX - startX));
+			const randomWidthForItem = startX + Math.floor(Math.random() * (setMaxXWidth - startX));
 
-			item.style.left = `${Math.min(currX, maxX)}px`; // container width
-			item.style.top = `${Math.min(startY, maxY)}px`; // container height
+			item.style.left = `${Math.min(randomWidthForItem, setMaxXWidth)}px`; 
+			item.style.top = `${Math.min(startY, setMaxYHeight)}px`;
 		});
 	}
 
-	const populateBoxesWithDelay = (items: HTMLDivElement[]) => {
-		//add to product context
+	const renderClothingWithDelay = (items: HTMLDivElement[]) => {
 		setTimeout(() => {
-			setPositionItemsByClass(items);
+			setItemsPositionByClassHelper(items);
 		}, 100); // You might want a single delay or other strategy
 	};
 
-	const handleAddMetaData = (e: Event) => {
+	const handleAddMetaDataHelper = (e: React.MouseEvent) => {
 		e.preventDefault();
 		// window.open('https://');
+	};
+
+	const handleMouseDown = (
+		e: MouseEvent,
+		index: number,
+		item: HTMLDivElement
+	) => {
+		e.preventDefault();
+		touchedOrClicked = true;
+		moved = false;
+		//item.classList.add('grow-on-drag');
+			startDrag(e.clientX, e.clientY, index, item);	
+		
+	};
+
+	const handleTouchStart = (
+		e: TouchEvent,
+		index: number,
+		item: HTMLDivElement
+	) => {
+		e.preventDefault();
+		touchedOrClicked = true;
+		moved = false;
+		//item.classList.add('grow-on-drag');
+		startDrag(e.touches[0].clientX, e.touches[0].clientY, index, item);
 	};
 
 	const startDrag = (
@@ -133,44 +158,14 @@ export const Sandbox = () => {
 		});
 	};
 
-	let moved = false;
-	let touchedOrClicked = false;
-	let itemWasDragged = false;
-
-	const handleMouseDown = (
-		e: MouseEvent,
-		index: number,
-		item: HTMLDivElement
-	) => {
-		e.preventDefault();
-		touchedOrClicked = true;
-		moved = false;
-		//item.classList.add('grow-on-drag');
-			startDrag(e.clientX, e.clientY, index, item);	
-		
-	};
-
-	const handleTouchStart = (
-		e: TouchEvent,
-		index: number,
-		item: HTMLDivElement
-	) => {
-		e.preventDefault();
-		touchedOrClicked = true;
-		moved = false;
-		//item.classList.add('grow-on-drag');
-		startDrag(e.touches[0].clientX, e.touches[0].clientY, index, item);
-	};
 
 	useEffect(() => {
 		dragItemsRef.current = Array.from(
 			document.querySelectorAll(".box")
 		) as HTMLDivElement[];
-		
 		const container = containerRef.current;
 
-		// Populate boxes with delay on mount
-		populateBoxesWithDelay(dragItemsRef.current);
+		renderClothingWithDelay(dragItemsRef.current);
 
 		const handleMouseMove = (e: MouseEvent) => {
 			e.preventDefault();

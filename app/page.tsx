@@ -1,4 +1,3 @@
-import { CartProvider } from "..//context/CartContext";
 import Banner from "../components/Banner/Banner";
 import Link from "next/link";
 import "./HomeCSS/home.css";

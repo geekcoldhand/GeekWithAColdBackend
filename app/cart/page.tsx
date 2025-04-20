@@ -1,13 +1,13 @@
 "use client";
 import React from "react";
-import { useGlobalContext } from "../../context/CartContext";
+import { useGlobalCartContext } from "../../context/CartContext";
 import Link from "next/link";
 import CartItem from "../../components/Cart/CartItem";
 import StripeCheckout from "../../components/StripeCheckout/StripeCheckout";
 import Footer from "../../components/Footer/Footer";
 
 const CartItems = () => {
-	const { state, clear } = useGlobalContext();
+	const { state } = useGlobalCartContext();
 	const { cart, total } = state;
 
 	if (cart.length < 1) {

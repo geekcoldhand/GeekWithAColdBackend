@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { useGlobalContext } from "../../context/CartContext";
+import { useGlobalCartContext } from "../../context/CartContext";
 import "./Navbar.css";
 import whiteAtomLogo from "../../public/svgs/whiteAtom.svg";
 import Image from "next/image";
@@ -10,10 +10,8 @@ import Image from "next/image";
 const Navbar: React.FC = () => {
 	//const { isAuthenticated, user, loginWithRedirect, logout } = useAuth0();
 	//const isUser = isAuthenticated && user;
-	const { state } = useGlobalContext();
+	const { state } = useGlobalCartContext();
 	const amount = state.amount;
-
-
 
 	useEffect(() => {
 		const hamMenu = document.querySelector(".ham-menu");
@@ -38,7 +36,6 @@ const Navbar: React.FC = () => {
 
 		// Cleanup
 		return () => {
-	
 			if (hamMenu) {
 				hamMenu.removeEventListener("click", toggleMenu);
 			}

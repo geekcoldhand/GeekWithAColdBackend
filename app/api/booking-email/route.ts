@@ -1,3 +1,4 @@
+import Error from "next/error";
 import { NextResponse } from "next/server";
 import { Resend } from 'resend';
 
@@ -5,7 +6,6 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
 	try {
-		// Parse the request body
 		const { date } = await req.json();
 
 		if (!date) {
@@ -27,15 +27,15 @@ export async function POST(req: Request) {
         { message: "Email sent successfully!" },
         { status: 200 }
       );
-    } catch (error) {
-      return NextResponse.json({ error: 'Email failed to send' }, { status: 500 });
+    } catch (error: any) {
+      return NextResponse.json({ error: error.message || 'Failed to send email' }, { status: 500 });
     }
 
 	
-	} catch (error) {
+	} catch (error: any) {
 		console.error("Error sending email:", error);
 		return NextResponse.json(
-			{ message: "An error occurred. Please try again." },
+			{ message: error.message },
 			{ status: 500 }
 		);
 	}
