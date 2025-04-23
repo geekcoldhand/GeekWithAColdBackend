@@ -16,6 +16,7 @@ interface CartItem {
 	image: string | StaticImageData;
 	price: number;
 	stock: number;
+	size: string;
 }
 
 // Define types for the state
@@ -31,7 +32,7 @@ type Action =
 	| { type: "REMOVE"; payload: string }
 	| {
 			type: "CART";
-			payload: { id: string; amount: number; product: CartItem; size: string };
+			payload: { id: string; amount: number; product: CartItem; };
 	  }
 	| { type: "INC"; payload: string }
 	| { type: "DEC"; payload: string }
@@ -44,7 +45,7 @@ const Cart = createContext<{
 		id: string,
 		amount: number,
 		product: CartItem,
-		size: string
+		
 	) => void;
 	clear: () => void;
 	decrease: (id: string) => void;
@@ -86,6 +87,7 @@ const reducer = (state: State, action: Action): State => {
 					image: product.image,
 					price: product.price,
 					stock: product.stock,
+					size: product.size
 				};
 				return { ...state, cart: [...state.cart, newItem] };
 			}
@@ -166,9 +168,9 @@ const CartProvider = ({ children }: { children: ReactNode }) => {
 		id: string,
 		amount: number,
 		product: CartItem,
-		size: string
+	
 	) => {
-		dispatch({ type: "CART", payload: { id, amount, product, size } });
+		dispatch({ type: "CART", payload: { id, amount, product } });
 	};
 
 	// Remove item

@@ -1,10 +1,13 @@
 import Stripe from "stripe";
 import { NextResponse } from "next/server";
+import { useGlobalCartContext } from "../../../context/CartContext";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 const origin = process.env.NEXTAUTH_URL as string;
 
 export async function POST(req: Request) {
+	const { state } = useGlobalCartContext();
+	const { cart, total } = state;
 	try {
 		const { amount, currency } = await req?.json();
 
@@ -16,11 +19,11 @@ export async function POST(req: Request) {
 					price_data: {
 						currency: currency,
 						product_data: {
-							name: "T-shirt", //TODO: Replace with actual name
+							name: "Gwach Garments", //TODO: Replace with actual name
 						},
-						unit_amount: 2000, //TODO: Replace with actual price
+						unit_amount: total,
 					},
-					quantity: 1, //TODO: Replace with actual quantity
+					quantity: cart.length, //TODO: Replace with actual quantity
 				},
 			],
 			mode: "payment",

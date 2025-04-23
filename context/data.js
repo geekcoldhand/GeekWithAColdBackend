@@ -10,6 +10,7 @@ const data = [
 	  shipping: true,
 	  amount: 1,
 	  stock: 4,
+	  size: ""
 	},
 	{
 	  id: "recjjjIsdfsdwhe",
@@ -22,6 +23,7 @@ const data = [
 	  shipping: true,
 	  amount: 1,
 	  stock: 4,
+	  size: ""
 	},
 	{
 	  id: "recskhfw38392x2Sj2",
@@ -33,6 +35,7 @@ const data = [
 	  category: "bag",
 	  amount: 1,
 	  stock: 5,
+	  size: ""
 	},
 	{
 	  id: "recjjjIsd234whe",
@@ -45,6 +48,7 @@ const data = [
 	  shipping: true,
 	  amount: 1,
 	  stock: 4,
+	  size: ""
 	},
 	{
 	  id: "recNZ0koOqEmilmoz",
@@ -57,6 +61,7 @@ const data = [
 	  shipping: true,
 	  amount: 1,
 	  stock: 3,
+	  size: ""
 	},
 	{
 	  id: "rec34857vbfeoz",
@@ -69,6 +74,7 @@ const data = [
 	  shipping: true,
 	  amount: 1,
 	  stock: 3,
+	  size: ""
 	},
 	{
 	  id: "recNZ0ko4353olmoz",
@@ -81,6 +87,7 @@ const data = [
 	  shipping: true,
 	  amount: 1,
 	  stock: 3,
+	  size: ""
 	},
 	{
 	  id: "recEHmzvupvT8ZONH",
@@ -93,6 +100,7 @@ const data = [
 	  shipping: true,
 	  amount: 1,
 	  stock: 6,
+	  size: ""
 	},
 	{
 	  id: "rec5NBwZ5zCD9nfF0",
@@ -104,6 +112,7 @@ const data = [
 	  category: "pant",
 	  amount: 1,
 	  stock: 4,
+	  size: ""
 	},
 	{
 	  id: "recoM2MyHJGHLVi5l",
@@ -116,6 +125,7 @@ const data = [
 	  shipping: true,
 	  amount: 1,
 	  stock: 4,
+	  size: ""
 	},
 	{
 	  id: "recotY5Nh00DQFdkm",
@@ -128,6 +138,7 @@ const data = [
 	  shipping: true,
 	  amount: 1,
 	  stock: 4,
+	  size: ""
 	},
 	{
 	  id: "rec1Ntk7siEEW9ha1",
@@ -140,6 +151,7 @@ const data = [
 	  shipping: true,
 	  amount: 1,
 	  stock: 2,
+	  size: ""
 	},
 	{
 	  id: "recrfxv3EwpvJwvjq",
@@ -152,6 +164,7 @@ const data = [
 	  shipping: true,
 	  amount: 1,
 	  stock: 4,
+	  size: ""
 	},
 	{
 	  id: "recoW8ecgjtKx2Sj2",
@@ -163,6 +176,7 @@ const data = [
 	  category: "shirt",
 	  amount: 1,
 	  stock: 5,
+	  size: ""
 	},
-  ];
-  export default data;
+];
+export default data;

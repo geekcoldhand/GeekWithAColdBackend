@@ -13,6 +13,8 @@ interface Product {
 	amount: number;
 	image: string | StaticImageData;
 	stock: number;
+	size: string;
+
 }
 
 interface AddToCartProps {
@@ -45,7 +47,7 @@ const AddToCart = React.memo(function AddToCart({ product }: AddToCartProps) {
 			alert("Please select a size");
 			return;
 		}
-		addToCart(id, amount, product, size);
+		addToCart(id, amount, product);
 	};
 
 	const increase = () => {

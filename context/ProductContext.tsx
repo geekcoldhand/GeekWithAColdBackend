@@ -14,6 +14,7 @@ interface Product {
     description: string;
 	stock: number;
 	category: string;
+	size: string;
 }
 
 // Define types for the state

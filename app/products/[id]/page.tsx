@@ -12,11 +12,11 @@ const SingleProductPage = () => {
 	const { id } = useParams();
 	const { products } = useProductsContext();
 
-	const temp = products.filter((product) => product.id === id);
+	const temp = products.filter((product)  => product.id === id);
 	return (
 		<div className="single-prod-container">
 			{temp.map((products) => {
-				const { name, price, description, amount, image } = products;
+				const { name, price, description, amount, image, size } = products;
 				return (
 					<div className="container" key={products.id}>
 						<button

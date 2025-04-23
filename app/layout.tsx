@@ -1,8 +1,10 @@
 import "./globalStyles.css";
 import { CartProvider } from "../context/CartContext";
+import { ProductsProvider } from "../context/ProductContext";
+import UserProvider from "../context/UserContext";
 import Navbar from "../components/Navbar/Navbar";
 import SplashPage from "../components/Splash/Splash";
-import { ProductsProvider } from "../context/ProductContext";
+
 
 
 export const metadata = {
@@ -20,6 +22,7 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body>
+				<UserProvider>
 				<ProductsProvider>
 					<CartProvider>
 						<SplashPage />
@@ -27,7 +30,8 @@ export default function RootLayout({
 						{children}
 						
 					</CartProvider>
-				</ProductsProvider>
+					</ProductsProvider>
+				</UserProvider>
 			</body>
 		</html>
 	);
