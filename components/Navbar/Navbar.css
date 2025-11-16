@@ -43,7 +43,7 @@
     width: 100%;
     max-height: 9rem;
     position: sticky;
-    z-index: 100;
+    z-index: 10;
     top: 0;
   }
 

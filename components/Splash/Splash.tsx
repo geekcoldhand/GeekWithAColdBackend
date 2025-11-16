@@ -10,7 +10,7 @@ export default function SplashPage() {
 	useEffect(() => {
 		const timer = setTimeout(() => {
 			setShowSplash(false);
-		}, 9000);
+		}, 900);
 
 		return () => clearTimeout(timer);
 	}, []);
