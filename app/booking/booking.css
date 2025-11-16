@@ -43,6 +43,7 @@
 	text-align: center;
 	padding: 1rem;
 	margin-inline: auto;
+	font-variant: all-small-caps;
 }
 .row-container {
 	display: flex;
