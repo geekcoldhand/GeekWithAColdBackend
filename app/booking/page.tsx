@@ -1,6 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import "./booking.css";
+import BookingContent from "../../components/Booking/Booking";
+import Atom from "../../components/Atom/ChatStream/ChatStream";
 
 const Booking = () => {
 	const [selectedDate, setSelectedDate] = useState<string>("");
@@ -35,7 +37,6 @@ const Booking = () => {
 				);
 			} else {
 				if (response.status === 500) {
-					
 				}
 				alert("Failed to send email. Please try again.");
 			}
@@ -47,7 +48,8 @@ const Booking = () => {
 
 	return (
 		<div className="booking-box">
-			<h1 className="booking-title">Book Consultation</h1>
+			<Atom />
+			{/* <h1 className="booking-title">Book Consultation</h1>
 			<div className="booking-container">
 				<div className="graphics-container">
 					<svg
@@ -130,7 +132,7 @@ const Booking = () => {
 
 					<br />
 				</div>
-			</div>
+			</div> */}
 		</div>
 	);
 };

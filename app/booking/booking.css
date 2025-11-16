@@ -44,6 +44,11 @@
 	padding: 1rem;
 	margin-inline: auto;
 }
+.row-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 
 .graphics-container {
 	height: 11rem;

@@ -1,21 +1,19 @@
-'use client';
+"use client";
 import Image from "next/image";
 import "./Splash.css";
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import whiteLogo from "../../public/svgs/whiteAtom.svg";
 
 export default function SplashPage() {
-  const [splashIsVisible, setShowSplash] = useState(true);
+	const [splashIsVisible, setShowSplash] = useState(true);
 
+	useEffect(() => {
+		const timer = setTimeout(() => {
+			setShowSplash(false);
+		}, 9000);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-       setShowSplash(false);
-    }, 900);
-
-    return () => clearTimeout(timer);
-  }, []);
-
+		return () => clearTimeout(timer);
+	}, []);
 
 	return splashIsVisible ? (
 		<div id="splash">
@@ -29,7 +27,7 @@ export default function SplashPage() {
 						priority
 						width={24}
 						height={20}
-						style={{ width: 'auto' }}
+						style={{ width: "auto" }}
 					/>
 				</div>
 			</div>

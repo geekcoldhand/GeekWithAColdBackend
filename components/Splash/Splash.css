@@ -16,6 +16,7 @@
       color: #ecf0f1;
       font-size: 2rem;
       text-align: center;
+      z-index: 3;
 }
 
 .splash-image{
