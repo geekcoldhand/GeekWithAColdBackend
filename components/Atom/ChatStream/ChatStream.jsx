@@ -16,7 +16,7 @@ export default function ChatStream() {
 			{
 				role: "assistant",
 				content:
-					"Welcome! My name is Atom. I'm here to assist you with booking your appointment",
+					"Welcome! My name is Atom. I'm here to assist you with booking your GWACH appointment. What would you like to book today?",
 				intent: "system",
 			},
 		]);
@@ -37,7 +37,7 @@ export default function ChatStream() {
 			},
 		]);
 
-		 historyManager.add("user", input, "user_input");
+		historyManager.add("user", input, "user_input");
 
 		setControllerInput(input);
 		setUserInput("");
@@ -96,7 +96,7 @@ export default function ChatStream() {
 			<Controller
 				message={controllerInput}
 				onResponse={handleControllerResponse}
-			    historyManager={historyManager}
+				historyManager={historyManager}
 			/>
 		</div>
 	);
