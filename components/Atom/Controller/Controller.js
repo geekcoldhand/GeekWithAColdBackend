@@ -24,6 +24,11 @@ export default class Controller extends React.Component {
 			farewell: new Farewell(this.saveHistory),
 		};
 	}
+	system_message = `You are a helpful assistant named Atom, who works for a clothing company 
+	that offers repairs, alterations, and bespoke services. Your role is to book appointments for customers.
+	You need to identify the intent of the appointment (repairs, alterations, or bespoke) and extract the time from the user's response.
+	If the user doesn't specify a time, you should ask for it. Be helpful and concise in your responses. Provide the intent and time in the
+	following format: 'Intent: [intent] Time: [time]'.`;
 
 	async callAGI(input) {
 		try {
@@ -36,7 +41,7 @@ export default class Controller extends React.Component {
 					},
 					body: JSON.stringify({
 						message: input,
-						system_message: "You are a helpful assistant named Atom.",
+						system_message: this.system_message,
 						max_tokens: 128,
 						temperature: 0.7,
 						top_p: 0.95,
@@ -50,7 +55,7 @@ export default class Controller extends React.Component {
 			}
 
 			const data = await response.json();
-			return data.response; 
+			return data.response;
 		} catch (error) {
 			console.error("AGI API Error:", error);
 			throw error; // Re-throw so UnknownState can handle it
@@ -74,7 +79,7 @@ export default class Controller extends React.Component {
 		const stateHandler = this.transitionState(intent);
 		const result = await stateHandler.handleUserInput(message);
 		historyManager.add("assistant", result.response, intent);
-		
+
 		onResponse(result.response, intent);
 	}
 
